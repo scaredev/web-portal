@@ -31,8 +31,23 @@ The portal needs a working RPI with `AdoPisoWiFi` software installed. Calls to t
 
 ## Start local server
 
+Linux/MacOS
 ```bash
 npm run dev
+```
+
+Windows
+
+On windows, you need to open two separate terminals.
+
+Terminal 1:
+```bash
+rollup -c -w
+```
+
+Terminal 2:
+```
+node api/server.js
 ```
 
 Open your browser and navigate to [localhost:4444](http://localhost:4444). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
