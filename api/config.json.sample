@@ -1,0 +1,58 @@
+{  
+  "timer":[  
+    {  
+      "pulse":1,
+      "credits":1,
+      "minutes":5
+    },
+    {  
+      "pulse":5,
+      "credits":5,
+      "minutes":30
+    },
+    {  
+      "pulse":10,
+      "credits":10,
+      "minutes":60
+    },
+    {  
+      "pulse":30,
+      "credits":30,
+      "minutes":1440
+    },
+    {  
+      "pulse":50,
+      "credits":50,
+      "minutes":2880
+    },
+    {  
+      "pulse":100,
+      "credits":100,
+      "minutes":10080
+    }
+  ],
+  "allow_pause":true,
+  "allow_pause_time":86400,
+  "allow_pause_validity":43200,
+  "counter_timer":30,
+  "banner_text":"Affordable and convenient connectivity.",
+  "banner_interval":3,
+  "footer_text":"Ado Piso Wifi",
+  "footer_link":"https://www.adopisowifi.com",
+  "domain":{  
+    "subdomain":"portal",
+    "domain":"ado-piso-wifi",
+    "authority":"com",
+    "use_opendns":true,
+    "dns_server":"208.67.222.222"
+  },
+  "splash":{  
+    "textcolor":"ffffff",
+    "color": "1995dc"
+  },
+  "disable_coinslot":false,
+  "view_rates":true,
+  "is_online":true,
+  "disable_buy_voucher":false
+}
+

@@ -2,5 +2,7 @@
 node_modules
 public/bundle.*
 package-lock.json
+proxy.config.json
+/api/config.json
 yarn.lockpackage-lock.json
 /dist
