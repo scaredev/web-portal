@@ -14,6 +14,7 @@ Install the dependencies...
 
 ```bash
 cd web-portal
+npm install rollup -g
 npm install
 ```
 
