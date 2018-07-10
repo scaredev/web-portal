@@ -37,10 +37,11 @@ function attachSplashStyles(html) {
 }
 
 router.use(express.static(path.join(__dirname, '../dist'), {index: '_'}))
-router.use(express.static(path.join(__dirname, '../static')))
 
 // show index.html as default response to GET requests
 router.get('/', (req, res) => {
+
+  // reload index.html everytime
   fs.readFile(index_html_path, 'utf8', (err, html) => {
     if (err)
       res.status(500).json({message: err.toString()})
@@ -62,6 +63,4 @@ router.get('/', (req, res) => {
 })
 
 module.exports = router
-
-
 

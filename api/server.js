@@ -9,7 +9,8 @@ const proxyConf = require('../proxy.config.json')
 const proxy = require('http-proxy-middleware')
 const apiProxy = proxy({
   target: proxyConf.server,
-  ws: true
+  ws: true,
+  changeOrigin: true
 })
 
 app.use(router)
