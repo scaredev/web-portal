@@ -8,9 +8,15 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es3": "^1.0.1",
     "babel-preset-latest": "^6.24.1",
+    "body-parser": "^1.18.3",
     "es3ify": "^0.2.2",
+    "express": "^4.16.3",
+    "http-proxy": "^1.17.0",
+    "http-proxy-middleware": "^0.18.0",
     "node-sass": "^4.9.0",
+    "q": "^1.5.1",
     "randomstring": "^1.1.5",
+    "raw-loader": "^0.5.1",
     "rollup": "^0.58.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-buble": "^0.19.2",
@@ -27,13 +33,11 @@
     "rollup-plugin-scss": "^0.4.0",
     "rollup-plugin-strip": "^1.1.1",
     "rollup-plugin-svelte": "^4.0.0",
-    "rollup-plugin-uglify": "^3.0.0",
-    "serve": "^6.5.6",
-    "svelte": "^2.6.0"
+    "rollup-plugin-uglify": "^3.0.0"
   },
   "scripts": {
     "build": "rollup -c",
-    "dev": "serve dist & rollup -c -w",
+    "dev": "node api/server.js & rollup -c -w",
     "start": "serve dist"
   },
   "dependencies": {
@@ -46,6 +50,7 @@
     "micromodal": "^0.3.2",
     "native-promise-only": "^0.8.1",
     "socket.io-client": "^2.1.1",
+    "svelte": "^2.6.0",
     "svelte-ladda": "^1.0.5",
     "svelte-transitions": "^1.2.0",
     "typedarray": "0.0.6"

@@ -35,6 +35,7 @@ class ClientHttp {
   }
 
   static que(type) {
+    console.log('queing');
     Redirect.cancel();
     return Http.post('/que', { type })
       .then(res => {

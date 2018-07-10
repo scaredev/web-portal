@@ -1,70 +1,40 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# AdoPisoWiFi - Web Portal
+
+Powered by [Svelte](https://svelte.technology)
 
 ---
 
-# svelte app
-
-This is a project template for [Svelte](https://svelte.technology) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npm install -g degit # you only need to do this once
-
-degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+## Prerequisites
+ - Node.js (latest)
+ - Working AdoPisoWiFi vendo (with or without external AP)
 
 ## Get started
 
 Install the dependencies...
 
 ```bash
-cd svelte-app
+cd web-portal
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+## Initialize config files
+
+```bash
+cp api/config.json.sample api/config.json
+cp proxy.config.json.sample proxy.config.json
+```
+
+## Preparing API proxy
+
+The portal needs a working RPI with `AdoPisoWiFi` software installed. Calls to the API are proxied to the host set in `proxy.config.json`. Make sure the PC where you are developing is connected to the LAN of RPI with IP address `10.0.0.1` either on internal or external accesspoint.
+
+## Start local server
 
 ```bash
 npm run dev
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+Open your browser and navigate to [localhost:4444](http://localhost:4444). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 
-## Deploying to the web
 
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-now
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public
-```
