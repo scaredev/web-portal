@@ -1,0 +1,48 @@
+
+{#if $show}
+<Ladda ladda="{submitting}" class="btn {$class}" on:click="connectOrPause($status)" spinnercolor="#fff">
+{$btnText}
+</Ladda>
+{/if}
+
+<script>
+  import Ladda from 'svelte-ladda';
+import ClientHttp from '../../services/client.http.js';
+import connectOrPauseBtnStore from './connect-or-pause-btn.store.js';
+import state from '../../stores/state.store.js';
+
+export default {
+  store: () => connectOrPauseBtnStore,
+  components: {
+    Ladda
+  },
+  data() {
+    return {
+      submitting: false
+    }
+  },
+  methods: {
+    connectOrPause(status) {
+      this.set({submitting: true});
+      let http;
+      if (status == 'disconnected')
+        http = ClientHttp.start()
+      else
+        http = ClientHttp.pause()
+
+      http
+        .then(res => {
+          const config = state.get().config;
+          const client = state.get().client;
+          connectOrPauseBtnStore.update(config, client);
+        })
+        .then(() => {
+          this.set({submitting: false})
+        })
+        .catch(() => {
+          this.set({submitting: false})
+        });
+    }
+  }
+}
+</script>

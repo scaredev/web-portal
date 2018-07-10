@@ -1,0 +1,107 @@
+<div class="home row">
+  <div class="col-md-8 col-md-offset-2">
+    <Banner duration="{$config.banner_interval}" images="{getBannerUrls($banners)}"></Banner>
+
+    <h4 class="text-info">
+      {$config.banner_text}
+    </h4>
+    <hr>
+
+    <IsOnline online="{$online}"></IsOnline>
+    <MachineState state="{$machineState}"></MachineState>
+
+    <div class="status-con">
+      <h4>
+        Status:
+        <strong>
+          <StatusText client="{$client}" pause="{$allow_pause}"></StatusText>
+        </strong>
+      </h4>
+    </div>
+
+    {#if $client.remaining_time > 0}
+
+    <div>
+      Remaining time:
+      <h3 class="remaining-time text-info">
+        <FormatSeconds seconds="{$client.remaining_time}"></FormatSeconds>
+      </h3>
+    </div>
+    {/if}
+
+    <div class="buttons-con">
+      <InserCoinBtn show="{!$config.disable_coinslot}"></InserCoinBtn>
+      <ConnectOrPauseBtn></ConnectOrPauseBtn>
+      <BuyVoucherButton show="{!$config.disable_buy_voucher}"></BuyVoucherButton>
+      {#if $config.view_rates}
+      <button type="button" class="btn btn-info" on:click="viewRates()">View Rates</button>
+      {/if}
+    </div>
+
+    <hr>
+    <VoucherForm></VoucherForm>
+
+  </div>
+</div>
+
+<script>
+  import FormatSeconds from './format-seconds/FormatSeconds.html';
+import InserCoinBtn from './insert-coin-btn/InsertCoinBtn.html';
+import ConnectOrPauseBtn from './connect-or-pause-btn/ConnectOrPauseBtn.html';
+import IsOnline from './is-online/IsOnline.html';
+import Banner from './banner/Banner.html';
+import VoucherForm from './voucher-form/VoucherForm.html';
+import MachineState from './machine-state/MachineState.html';
+import ClientHttp from '../services/client.http.js';
+import BuyVoucherButton from './buy-voucher-button/BuyVoucherButton.html';
+import StatusText from './status-text/StatusText.html';
+import RatesModal from './rates-modal/RatesModal.html';
+import state from '../stores/state.store.js';
+import modalStore from './micromodal/store.js';
+
+export default {
+  store: () => state,
+  components: {
+    ConnectOrPauseBtn,
+    FormatSeconds,
+    InserCoinBtn,
+    VoucherForm,
+    BuyVoucherButton,
+    StatusText,
+    Banner,
+    IsOnline,
+    MachineState
+  },
+  data() {
+    return {
+      pause_or_connecting: false
+    }
+  },
+  methods: {
+    viewRates() {
+      modalStore.set({
+        show:true,
+        component: RatesModal,
+        data: {
+          timer: state.get().config.timer
+        }
+      });
+    }
+  },
+  helpers: {
+    getBannerUrls(banners) {
+      const urls = banners.map(b => {
+        return `/img/banner/${encodeURIComponent(b)}`;
+      })
+      return urls;
+    }
+  }
+}
+</script>
+
+<style>
+h3.remaining-time {
+  margin-top: 0px;
+}
+</style>
+

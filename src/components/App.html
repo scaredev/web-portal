@@ -1,0 +1,73 @@
+
+<div class="dashboard padd-top padd-bottom text-center">
+
+  <div class="container">
+    {#if $page != 'voucher' && $page !== 'home'}
+    <InserCoin></InserCoin>
+    {/if}
+    {#if $page == 'voucher'}
+    <PayForVoucher></PayForVoucher>
+    {/if}
+    {#if $page == 'home'}
+    <Home></Home>
+    {/if}
+
+    <MicroModal></MicroModal>
+
+  </div>
+
+  <div class="footer">
+    <div class="site-link">
+      Powered By <a href="{$config.footer_link}" target="_blank">{$config.footer_text}</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+
+  import Home from './Home.html';
+import InserCoin from './InsertCoin.html';
+import PayForVoucher from './PayForVoucher.html';
+import MicroModal from './micromodal/MicroModal.html';
+import ClientHttp from '../services/client.http.js';
+import socket from '../services/socket.js';
+import timer from '../services/internal-timer.js';
+import state from '../stores/state.store.js';
+
+
+export default {
+  store: () => state,
+  oncreate() {
+    state.set({
+      client: window.clientData,
+      config: window.config,
+      banners: window.banners,
+      online: window.config.is_online
+    })
+    socket.init()
+    timer.start();
+    delete window.clientData;
+    delete window.config;
+    delete window.banners;
+  },
+  helpers: {
+    toJson: (obj) => JSON.stringify(obj)
+  },
+  components: {
+    Home,
+    InserCoin,
+    PayForVoucher,
+    MicroModal,
+  }
+}
+
+</script>
+
+<style>
+
+.footer a {
+  font-weight: 700;
+}
+
+</style>

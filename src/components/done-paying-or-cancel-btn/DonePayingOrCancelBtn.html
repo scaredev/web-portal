@@ -1,0 +1,53 @@
+
+<Ladda ladda="{submitting}" class="btn {klass}" on:click="done(client.remaining_time)" spinnercolor="#fff">
+{btnText}
+</Ladda>
+
+<script>
+  import Ladda from 'svelte-ladda';
+import ClientHttp from '../../services/client.http.js';
+
+export default {
+  components: {
+    Ladda
+  },
+  data() {
+    return {
+      client: {},
+      voucher: {},
+      submitting: false
+    }
+  },
+  computed: {
+    klass: ({client, voucher}) => {
+      const time = client.que_type !='voucher' ? client.remaining_time : voucher.total_time;
+      const klass = client.status == 'connected'? 'btn-success' : (time > 0? 'btn-success' : 'btn-warning');
+      return klass;
+    },
+    btnText: ({client, voucher}) => {
+      const time = client.que_type !='voucher' ? client.remaining_time : voucher.total_time;
+      const btnText = client.status == 'connected'
+        ? (client.que_type == 'voucher' ? 'Done Paying For Voucher' : "I'm done paying")
+        : (time > 0
+          ? (client.que_type !='voucher'
+            ? 'Start Internet':
+            'Done Paying For Voucher')
+          : `Cancel`);
+      return btnText;
+    }
+  },
+  methods: {
+    done(remaining_time) {
+      this.set({submitting: true});
+      ClientHttp.start()
+        .then(() => {
+          this.set({submitting: false})
+        })
+        .catch(() => {
+          this.set({submitting: false})
+        })
+
+    }
+  }
+}
+</script>

@@ -1,0 +1,103 @@
+
+<div ref:slider style="width: {width}; height: {images.length > 1 && sliding ? height: 'auto'}">
+  {#each images as img, i}
+  <img src="{img}" alt="banner image" style="width: {width}; opacity: {index == i ? 1 : 0}; position: {images.length > 1 && sliding? 'absolute' : (i > 0 ? 'absolute':'static')}">
+  {/each}
+</div>
+
+<script>
+
+  let slider;
+
+export default {
+  oncreate() {
+    this.start();
+    slider = this.refs.slider;
+  },
+  onupdate({changed, current, previous}) {
+    if (changed.images || changed.duration) {
+      this.stop();
+      this.start();
+    }
+  },
+  ondestroy() {
+    this.stop();
+  },
+  data() {
+    return {
+      images: [],
+      duration: 3,
+      width: '100%',
+      index: -1,
+      sliding: false
+    };
+  },
+  computed: {
+    total_duration: ({duration}) => (duration + 1) * 1000,
+    height: ({index}) => {
+      if (!slider) return 0;
+      const currImg = slider.getElementsByTagName('img')[index];
+      if (currImg) {
+        return currImg.offsetHeight + 'px';
+      }
+      return 0;
+
+    }
+  },
+  methods: {
+    start() {
+      if (this.started) return;
+
+      this.started = true;
+      this.set({
+        index: 0
+      })
+
+      if (this.get().images.length == 0) return;
+
+      const tick = this.get().total_duration;
+      this.interval = setInterval(() => {
+        this.step();
+      }, tick);
+    },
+    step() {
+      let current = this.get();
+      let num = current.images.length;
+      let i = current.index + 1;
+      if (i >= num) i = 0;
+      this.timeout = setTimeout(() => {
+        this.set({index: i, sliding: true})
+      }, 1000)
+    },
+    stop() {
+      if (this.interval)
+        clearInterval(this.interval);
+      if (this.timeout)
+        clearTimeout(this.timeout)
+      this.interval = null
+      this.timeout = null
+      this.set({
+        fading: false,
+        index: 0
+      })
+
+      this.started = false;
+    }
+  }
+}
+
+</script>
+
+<style>
+ref:slider {
+  position: relative;
+}
+img {
+  -webkit-transition: opacity 1s, height 1s; /* Safari */
+  transition: opacity 1s, height 1s;
+ 
+  top: 0;
+  left: 0;
+  position:absolute;
+}
+</style>

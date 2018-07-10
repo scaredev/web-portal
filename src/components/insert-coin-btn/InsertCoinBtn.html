@@ -1,0 +1,34 @@
+<Ladda ladda="{queing}" class="btn btn-success {show? '' : 'hidden'}" on:click="que('credit')" spinnercolor="#fff">
+  {queing? 'Please wait' : 'Insert Coin'}
+</Ladda>
+
+<script>
+  import ClientHttp from '../../services/client.http.js';
+import Ladda from 'svelte-ladda';
+
+export default {
+  components: {
+    Ladda
+  },
+  data() {
+    return {
+      queing: false,
+      show: true
+    }
+  },
+  methods: {
+    que(type) {
+      this.fire('click');
+      this.set({queing: true})
+      ClientHttp.que(type)
+        .then(() => {
+          this.set({queing: false})
+          this.fire('queing');
+        })
+        .catch(() => {
+          this.set({queing: false})
+        })
+    }
+  }
+}
+</script>

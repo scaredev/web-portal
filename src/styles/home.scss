@@ -1,0 +1,17 @@
+@media (max-width: 500px) {
+  .home, .rates-modal {
+    .status-con {
+      h4 {
+        margin-bottom: -5px;
+      }
+    }
+
+    .buttons-con {
+      .btn {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 170px;
+      }
+    }
+  }
+}

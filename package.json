@@ -1,0 +1,53 @@
+{
+  "name": "svelte-app",
+  "version": "1.0.0",
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es3": "^1.0.1",
+    "babel-preset-latest": "^6.24.1",
+    "es3ify": "^0.2.2",
+    "node-sass": "^4.9.0",
+    "randomstring": "^1.1.5",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-clean": "^1.0.0",
+    "rollup-plugin-cleaner": "^0.2.0",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-copy": "^0.2.3",
+    "rollup-plugin-es3": "^1.1.0",
+    "rollup-plugin-fill-html": "^1.1.0",
+    "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-image-base64": "^1.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^3.0.3",
+    "rollup-plugin-scss": "^0.4.0",
+    "rollup-plugin-strip": "^1.1.1",
+    "rollup-plugin-svelte": "^4.0.0",
+    "rollup-plugin-uglify": "^3.0.0",
+    "serve": "^6.5.6",
+    "svelte": "^2.6.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "serve dist & rollup -c -w",
+    "start": "serve dist"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootswatch": "^3.3.7",
+    "clipboard": "^2.0.1",
+    "dom4": "^2.0.1",
+    "howler": "^2.0.12",
+    "image-preloader": "^1.1.1",
+    "micromodal": "^0.3.2",
+    "native-promise-only": "^0.8.1",
+    "socket.io-client": "^2.1.1",
+    "svelte-ladda": "^1.0.5",
+    "svelte-transitions": "^1.2.0",
+    "typedarray": "0.0.6"
+  }
+}

@@ -1,0 +1,15 @@
+{#if !online}
+<div class="alert alert-danger">
+  Warning: Machine is OFFLINE!!! 
+</div>
+{/if}
+
+<script>
+  export default {
+    data() {
+      return {
+        online: true
+      }
+    }
+  }
+</script>

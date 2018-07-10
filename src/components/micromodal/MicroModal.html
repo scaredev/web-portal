@@ -1,0 +1,41 @@
+{#if $show && $component != null}
+<div ref:modal class="modal micromodal-slide" aria-hidden="true">
+  <svelte:component this="{$component}" on:close="close(event)" data="{$data}"></svelte:component>
+</div>
+{/if}
+
+<script>
+  import MicroModal from 'micromodal';
+import store from './store.js';
+
+export default {
+  store: () => store,
+  oncreate() {
+    this.created = true;
+  },
+  onupdate({changed, current, previous}) {
+    if (this.created) {
+      if (current.$component != null && current.$show) {
+        if (!current.isOpen) {
+          this.refs.modal.id = Math.random().toString().replace(/\./g, '');
+          MicroModal.show(this.refs.modal.id);
+        }
+        this.isOpen = true;
+      }
+    }
+  },
+  ondestroy() {
+    MicroModal.close(this.refs.modal.id);
+  },
+  methods: {
+    close(e) {
+      store.set({
+        show: false,
+        component: null
+      });
+    }
+  }
+}
+
+</script>
+

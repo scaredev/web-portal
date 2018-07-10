@@ -1,0 +1,21 @@
+{formatSeconds(seconds, type)}
+
+<script>
+import formatSeconds from '../../services/format-seconds.js';
+
+export default {
+  data() {
+    return {
+      seconds: 0,
+      type: 'long'
+    }
+  }, 
+  helpers: {
+    formatSeconds(s, t) {
+      return formatSeconds(s, t)
+    }
+  }
+}
+
+</script>
+

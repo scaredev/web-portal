@@ -1,0 +1,79 @@
+<div class="modal__overlay" tabindex="-1">
+  <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+    <header class="modal__header">
+      <h2 class="">
+        Here's Your Voucher
+      </h2>
+    </header>
+    <main class="modal__content" id="modal-1-content">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="code">
+              {data.code}
+            </td>
+            <td>
+              <FormatSeconds seconds="{data.time}"></FormatSeconds>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+      <i>Please print screen this page for backup.</i>
+      </p>
+    </main>
+    <footer class="modal__footer text-center">
+      <button ref:closebtn class="btn btn-warning" on:click="close()">
+        <i class="glyphicon glyphicon-check"></i>
+        Copy To Clipboard
+      </button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  import FormatSeconds from '../format-seconds/FormatSeconds.html';
+import state from '../../stores/state.store.js';
+import Clipboard from 'clipboard';
+
+export default {
+  components: { FormatSeconds },
+  methods: {
+    close() {
+      this.fire('close');
+    },
+    data() {
+      return {
+        data: {}
+      }
+    }
+  },
+  oncreate() {
+    state.set({voucherModalOpen: true})
+    window.onbeforeunload = function() {
+      return "Are you sure you want to leave?";
+    }
+
+    const code = this.get().data.code;
+
+    this.clipboard = new Clipboard(this.refs.closebtn, {
+      text: () => code
+    });
+
+  },
+  ondestroy() {
+    state.set({voucherModalOpen: false});
+    window.onbeforeunload = function() {};
+    setTimeout(() => {
+      this.clipboard.destroy();
+    }, 500)
+  }
+}
+</script>
+

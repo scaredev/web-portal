@@ -1,0 +1,48 @@
+<form name="voucherForm">
+  <div class="form-group">
+    <label>Do you have a voucher?</label>
+    <input type="text" autocomplete="off" placeholder="Type your voucher code here..." bind:value=code name="code" class="form-control" required>
+  </div>
+  <Ladda disabled="{!code}" ladda="{submitting}" class="btn {getClass(code)}" on:click="submit(event, code)" spinnercolor="#fff">
+  Use Voucher
+  </Ladda>
+</form>
+
+<script>
+
+  import Ladda from 'svelte-ladda';
+import ClientHttp from '../../services/client.http.js';
+
+export default {
+  components: {Ladda},
+  data() {
+    return {
+      submitting: false,
+      code: ''
+    }
+  },
+  methods: {
+    submit(e, code) {
+      e.preventDefault();
+      if (code) {
+        this.set({submitting: true})
+        ClientHttp.activateVoucher(code)
+          .then(res => {
+            this.set({
+              code: '',
+              submitting: false
+            })
+          })
+          .catch(() => {
+            this.set({submitting: false});
+          });
+      }
+    }
+  },
+  helpers: {
+    getClass(code) {
+      return code ? 'btn-primary' : 'btn-default';
+    }
+  }
+}
+</script>

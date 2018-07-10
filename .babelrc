@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "es3",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "firefox 40",
+            "chrome 40",
+            "edge 12",
+            "ie 5.5",
+            "android 2.1",
+            "safari 6",
+            "ios_saf 6"
+          ]
+        },
+        "modules": false,
+        "debug": true,
+        "runtimeHelpers": true
+      }
+    ]
+      ],
+      "plugins": [
+        "external-helpers"
+      ]
+}

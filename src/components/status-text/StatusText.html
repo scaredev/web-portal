@@ -1,0 +1,28 @@
+<span class="{klass}">
+  {text}
+</span>
+
+<script>
+  export default {
+    data() {
+      return {
+        client: {},
+        pause: null
+      }
+    },
+    computed: {
+      text: ({client, pause}) => {
+        return client.remaining_time > 0
+          ? (client.status == 'disconnected'
+            ? (pause
+              ? 'Paused'
+              : 'Pls. Reconnect')
+            : 'Connected')
+          : 'Disconnected';
+      },
+      klass: ({client}) => {
+        return client.remaining_time > 0? (client.status == 'disconnected'? 'text-warning' : 'text-success') : 'text-danger';
+      }
+    }
+  }
+</script>

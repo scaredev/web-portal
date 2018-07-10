@@ -1,0 +1,62 @@
+<div class="modal__overlay rates-modal" tabindex="-1">
+  <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+    <header class="modal__header text-center">
+      <h2 class="text-center" style="width: 100%">
+        Package Rates 
+      </h2>
+    </header>
+    <main class="modal__content text-center" id="modal-1-content">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each data.timer as t}
+          <tr>
+            <td class="text-center">
+              {t.credits}
+            </td>
+            <td class="text-center">
+              <FormatSeconds seconds="{t.minutes * 60}" type="short"></FormatSeconds>
+            </td>
+          </tr>
+          {/each}
+        </tbody>
+      </table>
+      <p>
+      </p>
+    </main>
+    <footer class="buttons-con modal__footer text-center">
+      <InserCoinBtn on:queing="close()"></InserCoinBtn>
+      <BuyVoucherButton on:queing="close()"></BuyVoucherButton>
+      <button class="btn btn-warning" on:click="close()">
+        Close
+      </button>
+    </footer>
+  </div>
+</div>
+
+<script>
+
+import InserCoinBtn from '../insert-coin-btn/InsertCoinBtn.html';
+import BuyVoucherButton from '../buy-voucher-button/BuyVoucherButton.html';
+import FormatSeconds from '../format-seconds/FormatSeconds.html';
+
+export default {
+  components: { FormatSeconds, InserCoinBtn, BuyVoucherButton},
+  methods: {
+    close() {
+      this.fire('close');
+    },
+    data() {
+      return {
+        data: {}
+      }
+    }
+  }
+}
+</script>
+

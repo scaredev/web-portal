@@ -1,0 +1,32 @@
+<Ladda class="btn btn-primary {show? '' : 'hidden'}" spinnercolor="#fff" ladda="{queing}" on:click="que('voucher')">
+  {queing? 'Please wait' : 'Buy Voucher'}
+</Ladda>
+
+<script>
+  import ClientHttp from '../../services/client.http.js';
+import Ladda from 'svelte-ladda';
+
+export default {
+  components: {Ladda},
+  data() {
+    return {
+      queing: false,
+      show: true
+    }
+  },
+  methods: {
+    que(type) {
+      this.set({queing: true})
+      ClientHttp.que(type)
+        .then(() => {
+          this.set({queing: false})
+          this.fire('queing');
+        })
+        .catch(() => {
+          this.set({queing: false})
+        })
+    }
+
+  }
+}
+</script>
