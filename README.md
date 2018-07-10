@@ -21,7 +21,7 @@ cp proxy.config.json.sample proxy.config.json
 
 ## Preparing API proxy
 
-The portal needs a working RPI with `AdoPisoWiFi` software installed. Calls to the API are proxied to the host set in `proxy.config.json`. Make sure you are connected to the LAN of RPI with IP address `10.0.0.1` either on internal or external accesspoint.
+The portal needs a working RPI with `AdoPisoWiFi` software installed. Calls to the API are proxied to the host set in `proxy.config.json`. Make sure PC where you are developing is connected to the LAN of RPI with IP address `10.0.0.1` either on internal or external accesspoint.
 
 ## Start local server
 
