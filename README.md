@@ -15,6 +15,11 @@ Install the dependencies...
 ```bash
 cd web-portal
 npm install
+```
+
+## Initialize config files
+
+```bash
 cp api/config.json.sample api/config.json
 cp proxy.config.json.sample proxy.config.json
 ```
