@@ -1,5 +1,6 @@
 import Http from './services/http.js';
 import imagePreloader from 'image-preloader';
+import catchHttpError from './services/catch-http-error.js';
 
 const init = (initApp) => {
 
@@ -49,7 +50,6 @@ const init = (initApp) => {
       })
     })
     .then(xmlhttp => {
-      console.log(xmlhttp);
 
       clearInterval(interval);
 
@@ -78,13 +78,7 @@ const init = (initApp) => {
 
     })
     .catch(xmlhttp => {
-      console.log(JSON.stringify(xmlhttp));
-      if (xmlhttp.status == 400) {
-        alert('There was an error 400');
-      }
-      else {
-        alert('An error occured');
-      }
+      catchHttpError(xmlhttp);
     });
 };
 
