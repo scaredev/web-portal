@@ -13,8 +13,11 @@ const catchHttpError = (res) => {
     notify.error(err);
   else
     notify.error('Something went wrong');
-
-  Sounds.notAllowed.play();
+  try {
+    Sounds.notAllowed.play();
+  } catch (e) {
+    console.log(e);
+  }
 
   return Promise.reject(res);
 

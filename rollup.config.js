@@ -88,7 +88,7 @@ export default {
       debugger: production,
 
       // defaults to `[ 'console.*', 'assert.*' ]`
-      functions: [ 'console.log', 'assert.*', 'debug'],
+      functions: [ 'console.*', 'assert.*', 'debug'],
 
       // set this to `false` if you're not using sourcemaps –
       // defaults to `true`
