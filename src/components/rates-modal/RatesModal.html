@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          {#each data.timer as t}
+          {#each data.config.timer as t}
           <tr>
             <td class="text-center">
               {t.credits}
@@ -30,8 +30,8 @@
       </p>
     </main>
     <footer class="buttons-con modal__footer text-center">
-      <InserCoinBtn on:queing="close()"></InserCoinBtn>
-      <BuyVoucherButton on:queing="close()"></BuyVoucherButton>
+      <InserCoinBtn on:queing="close()" show="{!data.config.disable_coinslot}"></InserCoinBtn>
+      <BuyVoucherButton on:queing="close()" show="{!data.config.disable_buy_voucher}"></BuyVoucherButton>
       <button class="btn btn-warning" on:click="close()">
         Close
       </button>
@@ -53,7 +53,9 @@ export default {
     },
     data() {
       return {
-        data: {}
+        data: {
+          config: {}
+        }
       }
     }
   }
