@@ -1,8 +1,17 @@
+.home-con, .rates-modal {
+  .buttons-con {
+    margin-top: -20px;
+
+    .btn {
+      margin-top: 20px;
+    }
+  }
+}
+
 @media (max-width: 500px) {
-  .home, .rates-modal {
+  .home-con, .rates-modal {
     .buttons-con {
       .btn {
-        margin-top: 20px;
         width: 100%;
         max-width: 170px;
       }
