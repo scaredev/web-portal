@@ -1,5 +1,5 @@
 
-<div ref:slider style="width: {width}; height: {images.length > 1 && sliding ? height: 'auto'}">
+<div class="banner-slider" ref:slider style="width: {width}; height: {images.length > 1 && sliding ? height: 'auto'}">
   {#each images as img, i}
   <img src="{img}" alt="banner image" style="width: {width}; opacity: {index == i ? 1 : 0}; position: {images.length > 1 && sliding? 'absolute' : (i > 0 ? 'absolute':'static')}">
   {/each}
