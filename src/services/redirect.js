@@ -12,7 +12,8 @@ class Redirect {
     const redirect = 'http://' + hostname;
     if (window.location.hostname != hostname) {
       redirectTimeout = setTimeout(() => {
-        if (state.get().voucherModalOpen || state.get().client.status != 'connected') return;
+        let client = state.get().client;
+        if (state.get().voucherModalOpen || client.status != 'connected' || client.is_paying) return;
         document.getElementById('app').innerHTML = '<h4 class="ellipsis">Redirecting to ' + hostname + '. Please wait</h4>';
         window.location.assign(redirect);
       }, 3500);
