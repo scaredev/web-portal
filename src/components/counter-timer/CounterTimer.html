@@ -1,15 +1,19 @@
 
-<div class="progress">
-  <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="valuePercent($config, $client)" aria-valuemin="0" aria-valuemax="$config.counter_timer" style="width: {valuePercent($config, $client)}%;">
-    <span class="sr-only">{valuePercent($config, $client)}% Complete</span>
+<div class="waiting-for-payment">
+  <div class="progress">
+    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="valuePercent($config, $client)" aria-valuemin="0" aria-valuemax="$config.counter_timer" style="width: {valuePercent($config, $client)}%;">
+      <span class="sr-only">{valuePercent($config, $client)}% Complete</span>
+    </div>
   </div>
-</div>
-<div class="text-left ellipsis">
-  Waiting for payment({$client.counter_timer}s)
+  <div class="text-left ellipsis">
+    Waiting for payment({$client.counter_timer}s)
+  </div>
 </div>
 
 <script>
+
 import state from '../../stores/state.store.js';
+
 export default {
   store: () => state,
   helpers: {

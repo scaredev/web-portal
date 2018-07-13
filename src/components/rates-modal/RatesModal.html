@@ -1,4 +1,4 @@
-<div class="modal__overlay rates-modal" tabindex="-1">
+<div class="rates-modal modal__overlay rates-modal" tabindex="-1">
   <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
     <header class="modal__header text-center">
       <h2 class="text-center" style="width: 100%">
@@ -32,7 +32,7 @@
     <footer class="buttons-con modal__footer text-center">
       <InserCoinBtn on:queing="close()" show="{!data.config.disable_coinslot}"></InserCoinBtn>
       <BuyVoucherButton on:queing="close()" show="{!data.config.disable_buy_voucher}"></BuyVoucherButton>
-      <button class="btn btn-warning" on:click="close()">
+      <button class="close-btn btn btn-warning" on:click="close()">
         Close
       </button>
     </footer>

@@ -1,12 +1,12 @@
-<div class="text-center">
+<div class="insert-coin-con text-center">
 
   <h2 class="text-success">{$pageTitle}</h2>
 
   <div class="insert-coin">
-    <img src="{insertCoin}" style="width: 100%;" alt="">
+    <img src="{insertCoin}" alt="">
   </div>
 
-  <p>
+  <p class="your-time">
   Your Time:
   <span class="{$client.remaining_time > 0 ? 'text-success' : 'text-danger'}">
     <FormatSeconds seconds="{$client.remaining_time}"></FormatSeconds>
@@ -14,14 +14,15 @@
   </p>
 
   <DonePayingOrCancelBtn voucher="{$voucher}" client="{$client}"></DonePayingOrCancelBtn>
-  <div class="padd-top">
+  <div class="counter-timer padd-top">
     <CounterTimer></CounterTimer>
   </div>
 
 </div>
 
 <script>
-  import Sounds from '../services/sounds.js';
+
+import Sounds from '../services/sounds.js';
 import state from '../stores/state.store.js';
 import InserCoin from '../img/insert-coin.gif';
 
@@ -63,5 +64,8 @@ export default {
 .insert-coin {
   width: 150px;
   margin: 15px auto;
+}
+.insert-coin img {
+  width: 100%;
 }
 </style>

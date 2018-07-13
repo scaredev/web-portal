@@ -1,4 +1,4 @@
-<div class="home row">
+<div class="home-con row">
   <div class="col-md-8 col-md-offset-2">
     <Banner duration="{$config.banner_interval}" images="{getBannerUrls($banners)}"></Banner>
 
@@ -21,7 +21,7 @@
 
     {#if $client.remaining_time > 0}
 
-    <div>
+    <div class="remaining-time-con">
       Remaining time:
       <h3 class="remaining-time text-info">
         <FormatSeconds seconds="{$client.remaining_time}"></FormatSeconds>
@@ -39,13 +39,15 @@
     </div>
 
     <hr>
-    <VoucherForm></VoucherForm>
+    <div class="voucher-form-con">
+      <VoucherForm></VoucherForm>
+    </div>
 
   </div>
 </div>
 
 <script>
-  import FormatSeconds from './format-seconds/FormatSeconds.html';
+import FormatSeconds from './format-seconds/FormatSeconds.html';
 import InserCoinBtn from './insert-coin-btn/InsertCoinBtn.html';
 import ConnectOrPauseBtn from './connect-or-pause-btn/ConnectOrPauseBtn.html';
 import IsOnline from './is-online/IsOnline.html';
