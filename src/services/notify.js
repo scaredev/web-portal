@@ -14,6 +14,7 @@ const makeToaster = (opts) => {
 }
 
 export default {
+  info: makeToaster({type: 'info', title: 'Info'}),
   success: makeToaster({type: 'success', title: 'Success'}),
   warning: makeToaster({type: 'warning', title: 'Warning'}),
   error: makeToaster({type: 'error', title: 'Error'})

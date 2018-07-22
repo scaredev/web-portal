@@ -157,6 +157,14 @@ class Socket {
       notify.warning('WiFi machine is shutting down!')
     });
 
+    socket.on('notification', data => {
+      console.log('notification', data);
+      notify[data.type]({title: data.title, text: data.text});
+      let config = state.get().config;
+      config.notifications.push(data);
+      state.set({config})
+    })
+
     this.socket = socket;
     return socket;
 

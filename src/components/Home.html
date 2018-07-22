@@ -7,6 +7,7 @@
     </h4>
     <hr>
 
+    <Notifications notifications="{$config.notifications}"></Notifications>
     <IsOnline online="{$online}"></IsOnline>
     <MachineState state="{$machineState}"></MachineState>
 
@@ -58,6 +59,7 @@ import ClientHttp from '../services/client.http.js';
 import BuyVoucherButton from './buy-voucher-button/BuyVoucherButton.html';
 import StatusText from './status-text/StatusText.html';
 import RatesModal from './rates-modal/RatesModal.html';
+import Notifications from './notifications/Notifications.html';
 import state from '../stores/state.store.js';
 import modalStore from './micromodal/store.js';
 
@@ -72,7 +74,8 @@ export default {
     StatusText,
     Banner,
     IsOnline,
-    MachineState
+    MachineState,
+    Notifications
   },
   data() {
     return {
