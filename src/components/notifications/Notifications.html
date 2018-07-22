@@ -1,0 +1,32 @@
+{#each notifications as notif}
+<div class="notification alert alert-{getAlertClass(notif.type)}">
+  <p><strong>{notif.title}</strong></p>
+  <p>{notif.text}</p>
+</div>
+{/each}
+
+
+<script>
+  export default {
+    data() {
+      return {
+        notifications: []
+      }
+    },
+    helpers: {
+      getAlertClass(type) {
+        if (type == 'error')
+          return 'danger';
+        else if (type == 'success')
+          return 'success';
+        else if (type == 'warning')
+          return 'warning';
+        else if (type == 'info')
+          return 'info'
+        else
+          return 'default'
+      }
+    }
+  }
+</script>
+

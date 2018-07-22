@@ -4,7 +4,7 @@ import connectOrPauseBtnStore from '../components/connect-or-pause-btn/connect-o
 const store = new Store({
   pageTitle: '',
   client: {},
-  config: {},
+  config: {notifications: []},
   banners: [],
   voucher: {},
   online: true,
