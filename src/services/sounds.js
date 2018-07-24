@@ -2,8 +2,8 @@ import howler from 'howler';
 
 const Sounds = {
   insertCoin: new Howl({
-    src: ['/sounds/beep-09.mp3'],
-    loop: true,
+    src: ['/sounds/please_insert_coin_raw.mp3'],
+    loop: false,
     buffer: false,
     preload: true
   }),

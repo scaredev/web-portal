@@ -78,6 +78,13 @@ class Socket {
       } catch(e) {
         console.log(e);
       }
+      setTimeout(() => {
+        try {
+          Sounds.insertCoin.play()
+        } catch (e) {
+          console.log(e)
+        }
+      }, 1500);
     });
 
     socket.on('internet:status:changed', result => {
@@ -102,6 +109,13 @@ class Socket {
       } catch(e) {
         console.log(e)
       }
+      setTimeout(() => {
+        try {
+          Sounds.insertCoin.play()
+        } catch (e) {
+          console.log(e)
+        }
+      }, 1500);
     });
 
     socket.on('config:updated', () => {

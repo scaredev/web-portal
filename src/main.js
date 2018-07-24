@@ -1,7 +1,7 @@
 
 //styles 
 //import 'bootstrap/dist/css/bootstrap.css';
-import 'bootswatch/cerulean/bootstrap.css'
+import 'bootswatch/cyborg/bootstrap.css'
 import 'ladda/dist/ladda-themeless.min.css';
 import './components/micromodal/micromodal.scss';
 import './libs/minitoast/scss/minitoast.scss';
