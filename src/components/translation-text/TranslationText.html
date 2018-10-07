@@ -1,0 +1,43 @@
+{displayText}
+
+<script>
+import translations from '../../services/translations.js';
+import state from '../../stores/state.store.js';
+
+const ERR = `Translation Error`;
+
+export default {
+  store: () => state,
+  data() {
+    return {
+      text: null,
+      translations
+    }
+  },
+  computed: {
+    displayText: ({ text }) => {
+
+      console.log('state', state.get())
+
+      if (!text) return `${ERR}: "text" attribute is required.`;
+      if (!state.get().config.language) return `${ERR}: Language not set.`;
+
+
+      let txtArr = text.split('.');
+      let result = translations;
+
+      for (let i=0; i < txtArr.length; i++) {
+        let attr = txtArr[i];
+        console.log(attr);
+        if (result[attr])
+          result = result[attr];
+        else
+          return `Translation Error: No such attribute [${attr}] from ${text}".`;
+      }
+
+      return result;
+
+    }
+  }
+}
+</script>

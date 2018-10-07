@@ -9,9 +9,9 @@ const Translations = {
       CLOSE: 'Close',
       USE_VOUCHER: 'Use Voucher',
       IM_DONE_PAYING: "I'm Done Paying",
-      PLEASE_WAIT: 'Please wait',
       PAUSE_TIME: 'Pause Time'
     },
+    PLEASE_WAIT: 'Please wait',
     PACKAGE_RATES: 'Package Rates',
     DO_YOU_HAVE_A_VOUCHER: 'Do you have a voucher?',
     REMAINING_TIME: 'Remaining Time',
