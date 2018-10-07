@@ -19,6 +19,7 @@ const Translations = {
     TIME: 'Time',
     INSERT_COIN_NOW: 'Insert Coin Now',
     WAITING_FOR_PAYMENT: 'Waiting for payment',
+    HERES_YOUR_VOUCHER: "Here's Your Voucher",
     status: {
       STATUS: 'Status',
       CONNECTED: 'Connected',

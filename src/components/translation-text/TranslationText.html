@@ -8,34 +8,57 @@ const ERR = `Translation Error`;
 
 export default {
   store: () => state,
+  oncreate() {
+
+    this.translate();
+
+    const listener = this.store.on('state', ({ previous, current }) => {
+      if (previous.config.language == current.config.language) return;
+      this.translate();
+    });
+
+    this.on('destroy', () => {
+      listener.cancel();
+    });
+  },
+  onupdate() {
+    this.translate();
+  },
   data() {
     return {
       text: null,
+      displayText: '',
       translations
     }
   },
-  computed: {
-    displayText: ({ text }) => {
+  methods: {
+    translate() {
 
-      console.log('state', state.get())
+      const data = this.get();
+      const lang = this.store.get().config.language || 'en';
 
-      if (!text) return `${ERR}: "text" attribute is required.`;
-      if (!state.get().config.language) return `${ERR}: Language not set.`;
+      let result = translations[lang];
+      let err;
 
+      if (!data.text) err = `${ERR}: "text" attribute is required.`;
+      if (!lang) err = `${ERR}: Language not set.`;
 
-      let txtArr = text.split('.');
-      let result = translations;
+      let txtArr = data.text.split('.');
 
-      for (let i=0; i < txtArr.length; i++) {
-        let attr = txtArr[i];
-        console.log(attr);
-        if (result[attr])
-          result = result[attr];
-        else
-          return `Translation Error: No such attribute [${attr}] from ${text}".`;
+      if (!err) {
+        for (let i=0; i < txtArr.length; i++) {
+          let attr = txtArr[i];
+          if (result[attr])
+            result = result[attr];
+          else {
+            err = `Translation Error: No such attribute [${attr}] from ${data.text}".`;
+            break;
+          }
+        }
       }
 
-      return result;
+      this.set({displayText: err || result});
+
 
     }
   }

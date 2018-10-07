@@ -53,6 +53,7 @@
   "disable_coinslot":false,
   "view_rates":true,
   "is_online":true,
-  "disable_buy_voucher":false
+  "disable_buy_voucher":false,
+  "language": "en"
 }
 
