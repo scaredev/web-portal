@@ -1,5 +1,6 @@
 import { Store } from 'svelte/store.js';
 import connectOrPauseBtnStore from '../components/connect-or-pause-btn/connect-or-pause-btn.store.js';
+import translations from '../services/translations.js';
 
 const store = new Store({
   pageTitle: '',
@@ -33,18 +34,24 @@ store.compute('machineState', [
   'socketDisconnected',
   'serverRebooting',
   'serverShutdown',
-  'wifiRestarting'
-], (socketDisconnected, serverRebooting, serverShutdown, wifiRestarting) => {
+  'wifiRestarting',
+  'config'
+], (socketDisconnected, serverRebooting, serverShutdown, wifiRestarting, config) => {
+
+  const lang = config.language || 'en';
+  const dict = translations[lang];
+
   if (socketDisconnected && !(serverRebooting || serverShutdown || wifiRestarting))
-    return 'Unable to synchronize connection status.';
+    return dict.machine_state.UNABLE_TO_SYNCHRONIZE;
   else if (serverRebooting)
-    return 'The machine is rebooting.';
+    return dict.machine_state.REBOOTING;
   else if (serverShutdown)
-    return 'The machine is shutting down';
+    return dict.machine_state.SHUTTING_DOWN;
   else if (wifiRestarting)
-    return 'The WiFi is restarting';
+    return dict.machine_state.WIFI_RESTARTING;
   else
     return null;
+
 });
 
 store.on('state', ({current}) => {

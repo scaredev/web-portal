@@ -23,7 +23,7 @@
     {#if $client.remaining_time > 0}
 
     <div class="remaining-time-con">
-      Remaining time:
+      <TranslationText text="REMAINING_TIME"></TranslationText>:
       <h3 class="remaining-time text-info">
         <FormatSeconds seconds="{$client.remaining_time}"></FormatSeconds>
       </h3>
@@ -60,6 +60,7 @@ import BuyVoucherButton from './buy-voucher-button/BuyVoucherButton.html';
 import StatusText from './status-text/StatusText.html';
 import RatesModal from './rates-modal/RatesModal.html';
 import Notifications from './notifications/Notifications.html';
+import TranslationText from './translation-text/TranslationText.html';
 import state from '../stores/state.store.js';
 import modalStore from './micromodal/store.js';
 
@@ -75,7 +76,8 @@ export default {
     Banner,
     IsOnline,
     MachineState,
-    Notifications
+    Notifications,
+    TranslationText
   },
   data() {
     return {

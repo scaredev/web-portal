@@ -1,13 +1,15 @@
 <div class="insert-coin-con text-center">
 
-  <h2 class="text-success">{$pageTitle}</h2>
+  <h2 class="text-success">
+    <TranslationText text="{$pageTitle}"></TranslationText> 
+  </h2>
 
   <div class="insert-coin">
     <img src="{insertCoin}" alt="">
   </div>
 
   <p class="your-time">
-  Your Time:
+  <TranslationText text="YOUR_TIME"></TranslationText>:
   <span class="{$client.remaining_time > 0 ? 'text-success' : 'text-danger'}">
     <FormatSeconds seconds="{$client.remaining_time}"></FormatSeconds>
   </span>
@@ -29,16 +31,18 @@ import InserCoin from '../img/insert-coin.gif';
 import CounterTimer from './counter-timer/CounterTimer.html';
 import DonePayingOrCancelBtn from './done-paying-or-cancel-btn/DonePayingOrCancelBtn.html';
 import FormatSeconds from './format-seconds/FormatSeconds.html';
+import TranslationText from './translation-text/TranslationText.html';
 
 export default {
   store: () => state,
   components: {
     CounterTimer,
     DonePayingOrCancelBtn,
-    FormatSeconds
+    FormatSeconds,
+    TranslationText
   },
   oncreate() {
-    state.set({pageTitle: 'Insert Coin Now'})
+    state.set({pageTitle: 'INSERT_COIN_NOW'})
     try {
       Sounds.insertCoin.play();
     } catch(e) {

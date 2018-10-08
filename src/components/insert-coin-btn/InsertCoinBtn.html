@@ -1,14 +1,16 @@
 <Ladda ladda="{queing}" class="insert-coin-btn btn btn-success {show? '' : 'hidden'}" on:click="que('credit')" spinnercolor="#fff">
-  {queing? 'Please wait' : 'Insert Coin'}
+  <TranslationText text="{queing? 'PLEASE_WAIT' : 'buttons.INSERT_COIN'}"></TranslationText>
 </Ladda>
 
 <script>
-  import ClientHttp from '../../services/client.http.js';
+import ClientHttp from '../../services/client.http.js';
 import Ladda from 'svelte-ladda';
+import TranslationText from '../translation-text/TranslationText.html';
 
 export default {
   components: {
-    Ladda
+    Ladda,
+    TranslationText
   },
   data() {
     return {

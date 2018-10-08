@@ -1,15 +1,17 @@
 
 <Ladda ladda="{submitting}" class="done-paying-or-cancel-btn btn {klass}" on:click="done(client.remaining_time)" spinnercolor="#fff">
-{btnText}
+<TranslationText text="{btnText}"></TranslationText>
 </Ladda>
 
 <script>
-  import Ladda from 'svelte-ladda';
+import Ladda from 'svelte-ladda';
+import TranslationText from '../translation-text/TranslationText.html';
 import ClientHttp from '../../services/client.http.js';
 
 export default {
   components: {
-    Ladda
+    Ladda,
+    TranslationText
   },
   data() {
     return {
@@ -27,12 +29,12 @@ export default {
     btnText: ({client, voucher}) => {
       const time = client.que_type !='voucher' ? client.remaining_time : voucher.total_time;
       const btnText = client.status == 'connected'
-        ? (client.que_type == 'voucher' ? 'Done Paying For Voucher' : "I'm done paying")
+        ? (client.que_type == 'voucher' ? 'buttons.DONE_PAYING_FOR_VOUCHER' : 'buttons.IM_DONE_PAYING')
         : (time > 0
           ? (client.que_type !='voucher'
-            ? 'Start Internet':
-            'Done Paying For Voucher')
-          : `Cancel`);
+            ? 'buttons.START_INTERNET':
+            'buttons.DONE_PAYING_FOR_VOUCHER')
+          : `buttons.CANCEL`);
       return btnText;
     }
   },

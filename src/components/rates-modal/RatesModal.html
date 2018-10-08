@@ -9,8 +9,12 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th class="text-center">Amount</th>
-            <th class="text-center">Time</th>
+            <th class="text-center">
+              <TranslationText text="AMOUNT"></TranslationText>
+            </th>
+            <th class="text-center">
+              <TranslationText text="TIME"></TranslationText> 
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +37,7 @@
       <InserCoinBtn on:queing="close()" show="{!data.config.disable_coinslot}"></InserCoinBtn>
       <BuyVoucherButton on:queing="close()" show="{!data.config.disable_buy_voucher}"></BuyVoucherButton>
       <button class="close-btn btn btn-warning" on:click="close()">
-        Close
+        <TranslationText text="buttons.CLOSE"></TranslationText>
       </button>
     </footer>
   </div>
@@ -44,9 +48,15 @@
 import InserCoinBtn from '../insert-coin-btn/InsertCoinBtn.html';
 import BuyVoucherButton from '../buy-voucher-button/BuyVoucherButton.html';
 import FormatSeconds from '../format-seconds/FormatSeconds.html';
+import TranslationText from '../translation-text/TranslationText.html';
 
 export default {
-  components: { FormatSeconds, InserCoinBtn, BuyVoucherButton},
+  components: {
+    FormatSeconds,
+    InserCoinBtn,
+    BuyVoucherButton,
+    TranslationText
+  },
   methods: {
     close() {
       this.fire('close');

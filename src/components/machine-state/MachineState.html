@@ -1,11 +1,16 @@
 {#if state != null}
 <div class="machine-state alert alert-warning">
-  Warning: {state}
+  <TranslationText text="WARNING"></TranslationText>: {state}
 </div>
 {/if}
 
 <script>
+  import TranslationText from '../translation-text/TranslationText.html';
+
   export default {
+    components: {
+      TranslationText
+    },
     data() {
       return {
         state: null
