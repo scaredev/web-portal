@@ -35,7 +35,9 @@
       <ConnectOrPauseBtn></ConnectOrPauseBtn>
       <BuyVoucherButton show="{!$config.disable_buy_voucher}"></BuyVoucherButton>
       {#if $config.view_rates}
-      <button type="button" class="btn btn-info" on:click="viewRates()">View Rates</button>
+      <button type="button" class="btn btn-info" on:click="viewRates()">
+        <TranslationText text="buttons.VIEW_RATES"></TranslationText>
+      </button>
       {/if}
     </div>
 
