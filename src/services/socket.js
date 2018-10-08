@@ -13,11 +13,6 @@ class Socket {
   init() {
 
     let socket = io({ forceBase64: true });
-    let lang = null;
-
-    state.on('state', ({current}) => {
-      lang = current.config.language;
-    })
 
     socket.on('connect', () => {
       const prev = state.get();
@@ -30,7 +25,7 @@ class Socket {
       if (prev.serverShutdown || prev.serverRebooting || prev.wifiRestarting) {
         notify.success({
           title: 'Yehey!',
-          text: translator('toast.success.MACHINE_IS_UP', lang)
+          text: translator('toast.success.MACHINE_IS_UP')
         });
       }
       if (prev.socketDisconnected) {
@@ -49,14 +44,14 @@ class Socket {
 
     socket.on('payment:started', client => {
       state.set({
-        pageTitle: translator('PLEASE_WAIT', lang) + '...',
+        pageTitle: translator('PLEASE_WAIT') + '...',
         client
       })
     });
 
     socket.on('voucher:updated', data => {
       state.set({
-        pageTitle: translator('PAY_FOR_VOUCHER', lang),
+        pageTitle: translator('PAY_FOR_VOUCHER'),
         voucher: {
           total_time: data.total_time
         },
@@ -101,7 +96,7 @@ class Socket {
       });
       state.set({
         client: data.client,
-        pageTitle: translator('INSERT_COIN_NOW', lang)
+        pageTitle: translator('INSERT_COIN_NOW')
       });
       try {
         Sounds.coinInserted.play();
@@ -118,7 +113,7 @@ class Socket {
       state.set({client});
       notify.success({
         title: 'Yehey!',
-        text: translator('toast.success.CONNECTED', lang)
+        text: translator('toast.success.CONNECTED')
       });
       Redirect.redirect();
       try {
