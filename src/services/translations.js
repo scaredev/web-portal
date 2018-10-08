@@ -39,14 +39,15 @@ const Translations = {
       PAUSED: 'Paused'
     },
     machine_state: {
-      UNABLE_TO_SYNCHRONIZE: 'Unable to synchronize connection status',
-      REBOOTING: 'The machine is rebooting',
-      SHUTTING_DOWN: 'The machine is shutting down',
-      WIFI_RESTARTING: 'The wifi is restarting'
+      UNABLE_TO_SYNCHRONIZE: 'Unable to synchronize connection status.',
+      REBOOTING: 'The machine is rebooting.',
+      SHUTTING_DOWN: 'The machine is shutting down.',
+      WIFI_RESTARTING: 'The wifi is restarting.'
     },
     toast: {
       error: {
-        MACHINE_IS_OFFLINE: 'Machine is OFFLINE'
+        MACHINE_IS_OFFLINE: 'Machine is OFFLINE',
+        SOMETHING_WENT_WRONG: 'Something went wrong.'
       },
       success: {}
     }
@@ -91,14 +92,15 @@ const Translations = {
       PAUSED: 'En Pausa'
     },
     machine_state: {
-      UNABLE_TO_SYNCHRONIZE: 'No se puede sincronizar el estado de la conexión',
-      REBOOTING: 'La máquina se está reiniciando',
-      SHUTTING_DOWN: 'La máquina se está apagando',
-      WIFI_RESTARTING: 'El wifi se está reiniciando'
+      UNABLE_TO_SYNCHRONIZE: 'No se puede sincronizar el estado de la conexión.',
+      REBOOTING: 'La máquina se está reiniciando.',
+      SHUTTING_DOWN: 'La máquina se está apagando.',
+      WIFI_RESTARTING: 'El wifi se está reiniciando.'
     },
     toast: {
       error: {
-        MACHINE_IS_OFFLINE: 'La máquina está fuera de línea'
+        MACHINE_IS_OFFLINE: 'La máquina está fuera de línea',
+        SOMETHING_WENT_WRONG: 'Algo salió mal.'
       }
     }
   }

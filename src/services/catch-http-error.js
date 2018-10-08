@@ -1,5 +1,6 @@
 import notify from './notify.js';
 import Sounds from './sounds.js';
+import translator from './translator.js';
 
 const catchHttpError = (res) => {
   let err;
@@ -12,7 +13,7 @@ const catchHttpError = (res) => {
   if (err)
     notify.error(err);
   else
-    notify.error('Something went wrong');
+    notify.error(translator('toast.error.SOMETHING_WENT_WRONG'));
   try {
     Sounds.notAllowed.play();
   } catch (e) {

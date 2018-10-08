@@ -2,6 +2,7 @@
 
 <script>
 import translations from '../../services/translations.js';
+import translator from '../../services/translator.js';
 import state from '../../stores/state.store.js';
 
 const ERR = `Translation Error`;
@@ -33,33 +34,9 @@ export default {
   },
   methods: {
     translate() {
-
       const data = this.get();
-      const lang = this.store.get().config.language || 'en';
-
-      let result = translations[lang];
-      let err;
-
-      if (!data.text) err = `${ERR}: "text" attribute is required.`;
-      if (!lang) err = `${ERR}: Language not set.`;
-
-      let txtArr = data.text.split('.');
-
-      if (!err) {
-        for (let i=0; i < txtArr.length; i++) {
-          let attr = txtArr[i];
-          if (result[attr])
-            result = result[attr];
-          else {
-            err = `Translation Error: No such attribute [${attr}] from ${data.text}".`;
-            break;
-          }
-        }
-      }
-
-      this.set({displayText: err || result});
-
-
+      const txt = translator(data.text);
+      this.set({displayText: txt});
     }
   }
 }
