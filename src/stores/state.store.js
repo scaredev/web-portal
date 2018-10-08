@@ -1,6 +1,6 @@
 import { Store } from 'svelte/store.js';
 import connectOrPauseBtnStore from '../components/connect-or-pause-btn/connect-or-pause-btn.store.js';
-import translations from '../services/translations.js';
+import translator from '../services/translator.js';
 
 const store = new Store({
   pageTitle: '',
@@ -39,16 +39,15 @@ store.compute('machineState', [
 ], (socketDisconnected, serverRebooting, serverShutdown, wifiRestarting, config) => {
 
   const lang = config.language || 'en';
-  const dict = translations[lang];
 
   if (socketDisconnected && !(serverRebooting || serverShutdown || wifiRestarting))
-    return dict.machine_state.UNABLE_TO_SYNCHRONIZE;
+    return translator('machine_state.UNABLE_TO_SYNCHRONIZE', lang);
   else if (serverRebooting)
-    return dict.machine_state.REBOOTING;
+    return translator('machine_state.REBOOTING', lang);
   else if (serverShutdown)
-    return dict.machine_state.SHUTTING_DOWN;
+    return translator('machine_state.SHUTTING_DOWN', lang);
   else if (wifiRestarting)
-    return dict.machine_state.WIFI_RESTARTING;
+    return translator('machine_state.WIFI_RESTARTING', lang);
   else
     return null;
 
@@ -57,7 +56,6 @@ store.compute('machineState', [
 store.on('state', ({current}) => {
   connectOrPauseBtnStore.update(current.config, current.client);
 })
-
 
 export default store;
 

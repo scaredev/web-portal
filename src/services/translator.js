@@ -1,11 +1,10 @@
 import translations from './translations.js';
-import state from '../stores/state.store.js';
 
 const ERR = 'Translation Error';
 
 const translator = (text_id, lang) => {
 
-  lang = lang || state.get().config.language || 'en';
+  lang = lang || 'en';
   let result = translations[lang];
   let err;
 
