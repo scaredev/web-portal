@@ -7,11 +7,17 @@ import formatSeconds from './format-seconds.js';
 import voucherStore from '../components/micromodal/store.js';
 import VoucherModal from '../components/voucher-modal/VoucherModal.html';
 import Redirect from './redirect.js';
+import translator from './translator.js';
 
 class Socket {
   init() {
 
     let socket = io({ forceBase64: true });
+    let lang = null;
+
+    state.on('state', ({current}) => {
+      lang = current.config.language;
+    })
 
     socket.on('connect', () => {
       const prev = state.get();
@@ -24,7 +30,7 @@ class Socket {
       if (prev.serverShutdown || prev.serverRebooting || prev.wifiRestarting) {
         notify.success({
           title: 'Yehey!',
-          text: 'The wifi machine is up! Please reconnect to the wifi machine.'
+          text: translator('toast.success.MACHINE_IS_UP', lang)
         });
       }
       if (prev.socketDisconnected) {
@@ -43,14 +49,14 @@ class Socket {
 
     socket.on('payment:started', client => {
       state.set({
-        pageTitle: 'Please wait...',
+        pageTitle: translator('PLEASE_WAIT', lang) + '...',
         client
       })
     });
 
     socket.on('voucher:updated', data => {
       state.set({
-        pageTitle: 'Pay For Voucher',
+        pageTitle: translator('PAY_FOR_VOUCHER', lang),
         voucher: {
           total_time: data.total_time
         },
@@ -95,7 +101,7 @@ class Socket {
       });
       state.set({
         client: data.client,
-        pageTitle: 'Insert Coin Now'
+        pageTitle: translator('INSERT_COIN_NOW', lang)
       });
       try {
         Sounds.coinInserted.play();
@@ -112,7 +118,7 @@ class Socket {
       state.set({client});
       notify.success({
         title: 'Yehey!',
-        text: 'Connected to internet'
+        text: translator('toast.success.CONNECTED', lang)
       });
       Redirect.redirect();
       try {
@@ -127,7 +133,7 @@ class Socket {
       state.set({client});
       notify.error({
         title: 'Opps!',
-        text: 'Disconnected from internet'
+        text: translator('toast.error.DISCONNECTED', lang)
       });
       try {
         Sounds.disconnected.play();
@@ -140,26 +146,25 @@ class Socket {
       state.set({
         wifiRestarting: true
       });
-      notify.warning('WiFi is restarting!')
+      notify.warning(translator('machine_state.WIFI_RESTARTING', lang))
     });
 
     socket.on('server:rebooting', function () {
       state.set({
         serverRebooting: true
       });
-      notify.warning('WiFi machine is restarting!')
+      notify.warning(translator('machine_state.REBOOTING', lang))
     });
 
     socket.on('server:shutdown', function () {
       state.set({
         serverShutdown: true
       });
-      notify.warning('WiFi machine is shutting down!')
+      notify.warning(translator('machine_state.SHUTTING_DOWN', lang))
     });
 
     socket.on('notification', data => {
-      console.log('notification', data);
-      notify[data.type]({title: data.title, text: data.text});
+      notify[data.type]({title: data.title, text: translator(data.text, lang)});
       let config = state.get().config;
       config.notifications.push(data);
       state.set({config})

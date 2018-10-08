@@ -16,6 +16,11 @@ const store = new Store({
   voucherModalOpen: false
 });
 
+store.on('state', ({current}) => {
+  translator.setLanguage(current.config.language);
+  connectOrPauseBtnStore.update(current.config, current.client);
+})
+
 store.compute('page', [
   'config',
   'client'
@@ -38,24 +43,18 @@ store.compute('machineState', [
   'config'
 ], (socketDisconnected, serverRebooting, serverShutdown, wifiRestarting, config) => {
 
-  const lang = config.language || 'en';
-
   if (socketDisconnected && !(serverRebooting || serverShutdown || wifiRestarting))
-    return translator('machine_state.UNABLE_TO_SYNCHRONIZE', lang);
+    return translator('machine_state.UNABLE_TO_SYNCHRONIZE');
   else if (serverRebooting)
-    return translator('machine_state.REBOOTING', lang);
+    return translator('machine_state.REBOOTING');
   else if (serverShutdown)
-    return translator('machine_state.SHUTTING_DOWN', lang);
+    return translator('machine_state.SHUTTING_DOWN');
   else if (wifiRestarting)
-    return translator('machine_state.WIFI_RESTARTING', lang);
+    return translator('machine_state.WIFI_RESTARTING');
   else
     return null;
 
 });
-
-store.on('state', ({current}) => {
-  connectOrPauseBtnStore.update(current.config, current.client);
-})
 
 export default store;
 

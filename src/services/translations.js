@@ -47,9 +47,15 @@ const Translations = {
     toast: {
       error: {
         MACHINE_IS_OFFLINE: 'Machine is OFFLINE',
-        SOMETHING_WENT_WRONG: 'Something went wrong.'
+        SOMETHING_WENT_WRONG: 'Something went wrong.',
+        SOMEONE_IS_PAYING: 'Somebody is still paying.',
+        DISCONNECTED: 'Disconnected from internet'
       },
-      success: {}
+      success: {
+        TIME_PAUSED: 'Time paused',
+        CONNECTED: 'Connected to internet',
+        MACHINE_IS_UP: 'The wifi machine is up! Please reconnect to the wifi machine.'
+      }
     }
   },
   // end english
@@ -74,7 +80,7 @@ const Translations = {
     VOUCHER: 'Voucher',
     PLEASE_WAIT: 'Por favor espera',
     PACKAGE_RATES: 'Tarifas de Paquete',
-    DO_YOU_HAVE_A_VOUCHER: 'Tienes un Voucher?',
+    DO_YOU_HAVE_A_VOUCHER: 'Tienes un voucher?',
     REMAINING_TIME: 'Tiempo Restante',
     AMOUNT: 'Cantidad',
     TIME: 'Hora',
@@ -100,7 +106,14 @@ const Translations = {
     toast: {
       error: {
         MACHINE_IS_OFFLINE: 'La máquina está fuera de línea',
-        SOMETHING_WENT_WRONG: 'Algo salió mal.'
+        SOMETHING_WENT_WRONG: 'Algo salió mal.',
+        SOMEONE_IS_PAYING: 'Alguien sigue pagando.',
+        DISCONNECTED: 'Desconectado a internet' 
+      },
+      success: {
+        TIME_PAUSED: 'Tiempo en pausa',
+        CONNECTED: 'Conectado a internet',
+        MACHINE_IS_UP: 'La máquina wifi está lista. por favor vuelva a conectar a la máquina wifi.'
       }
     }
   }

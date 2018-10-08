@@ -3,6 +3,7 @@ import catchHttpError from './catch-http-error.js';
 import Redirect from './redirect.js';
 import state from '../stores/state.store.js';
 import notify from './notify.js';
+import translator from './translator.js';
 
 class ClientHttp {
 

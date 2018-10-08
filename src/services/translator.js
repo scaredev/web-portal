@@ -1,15 +1,16 @@
 import translations from './translations.js';
 
 const ERR = 'Translation Error';
+let language = 'en'
 
-const translator = (text_id, lang) => {
+const translator = (text_id) => {
 
-  lang = lang || 'en';
+  let lang = language;
   let result = translations[lang];
   let err;
 
   if (!text_id) err = `${ERR}: "text" attribute is required.`;
-  if (!lang || !result) err = `${ERR}: Language not set.`;
+  if (!lang || !result) err = text_id;
 
   let txtArr = text_id.split('.');
 
@@ -19,7 +20,8 @@ const translator = (text_id, lang) => {
       if (result[attr])
         result = result[attr];
       else {
-        err = `Translation Error: No such attribute [${attr}] from ${text_id}" for the language ${lang}.`;
+        console.log(`Translation Error: No such attribute [${attr}] from ${text_id}" for the language ${lang}.`);
+        err = text_id;
         break;
       }
     }
@@ -27,6 +29,10 @@ const translator = (text_id, lang) => {
 
   return err || result;
 
+}
+
+translator.setLanguage = (lang) => {
+  language = lang
 }
 
 export default translator;

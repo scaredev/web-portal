@@ -35,8 +35,7 @@ export default {
   methods: {
     translate() {
       const data = this.get();
-      const lang = this.store.get().config.language || 'en';
-      const txt = translator(data.text, lang);
+      const txt = translator(data.text);
       this.set({displayText: txt});
     }
   }

@@ -11,7 +11,7 @@ const catchHttpError = (res) => {
     }
   }
   if (err)
-    notify.error(err);
+    notify.error(translator(err));
   else
     notify.error(translator('toast.error.SOMETHING_WENT_WRONG'));
   try {
