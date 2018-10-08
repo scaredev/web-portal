@@ -52,9 +52,11 @@ const Translations = {
         DISCONNECTED: 'Disconnected from internet'
       },
       success: {
+        SUCCESS: 'Success',
         TIME_PAUSED: 'Time paused',
         CONNECTED: 'Connected to internet',
-        MACHINE_IS_UP: 'The wifi machine is up! Please reconnect to the wifi machine.'
+        MACHINE_IS_UP: 'The wifi machine is up! Please reconnect to the wifi machine.',
+        VOUCHER_ACTIVATED: 'Voucher activated successfully.'
       }
     }
   },
@@ -111,9 +113,11 @@ const Translations = {
         DISCONNECTED: 'Desconectado a internet' 
       },
       success: {
+        SUCCESS: 'Éxito',
         TIME_PAUSED: 'Tiempo en pausa',
         CONNECTED: 'Conectado a internet',
-        MACHINE_IS_UP: 'La máquina wifi está lista. por favor vuelva a conectar a la máquina wifi.'
+        MACHINE_IS_UP: 'La máquina wifi está lista. por favor vuelva a conectar a la máquina wifi.',
+        VOUCHER_ACTIVATED: 'Voucher activado correctamente'
       }
     }
   }

@@ -62,7 +62,7 @@ class ClientHttp {
       .then(res => {
         notify.success({
           title: 'Info',
-          text: 'Time paused'
+          text: translator('toast.success.TIME_PAUSED')
         });
         state.set({client: res.data});
         return res;
@@ -76,7 +76,7 @@ class ClientHttp {
           client: res.data
         });
         notify.success({
-          text: 'Voucher activated successfully.'
+          text: translator('toast.success.VOUCHER_ACTIVATED') 
         });
 
         if (state.get().client.status == 'disconnected')
@@ -88,3 +88,4 @@ class ClientHttp {
 }
 
 export default ClientHttp
+

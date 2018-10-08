@@ -1,5 +1,6 @@
 
 import Minitoast from '../libs/minitoast/js/minitoast.js';
+import translator from './translator.js';
 
 let toast = new Minitoast();
 
@@ -15,7 +16,7 @@ const makeToaster = (opts) => {
 
 export default {
   info: makeToaster({type: 'info', title: 'Info'}),
-  success: makeToaster({type: 'success', title: 'Success'}),
-  warning: makeToaster({type: 'warning', title: 'Warning'}),
+  success: makeToaster({type: 'success', title: translator('toast.success.SUCCESS')}),
+  warning: makeToaster({type: 'warning', title: translator('WARNING')}),
   error: makeToaster({type: 'error', title: 'Error'})
 };

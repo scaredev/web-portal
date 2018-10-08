@@ -128,7 +128,7 @@ class Socket {
       state.set({client});
       notify.error({
         title: 'Opps!',
-        text: translator('toast.error.DISCONNECTED', lang)
+        text: translator('toast.error.DISCONNECTED')
       });
       try {
         Sounds.disconnected.play();
@@ -141,25 +141,25 @@ class Socket {
       state.set({
         wifiRestarting: true
       });
-      notify.warning(translator('machine_state.WIFI_RESTARTING', lang))
+      notify.warning(translator('machine_state.WIFI_RESTARTING'))
     });
 
     socket.on('server:rebooting', function () {
       state.set({
         serverRebooting: true
       });
-      notify.warning(translator('machine_state.REBOOTING', lang))
+      notify.warning(translator('machine_state.REBOOTING'))
     });
 
     socket.on('server:shutdown', function () {
       state.set({
         serverShutdown: true
       });
-      notify.warning(translator('machine_state.SHUTTING_DOWN', lang))
+      notify.warning(translator('machine_state.SHUTTING_DOWN'))
     });
 
     socket.on('notification', data => {
-      notify[data.type]({title: data.title, text: translator(data.text, lang)});
+      notify[data.type]({title: data.title, text: translator(data.text)});
       let config = state.get().config;
       config.notifications.push(data);
       state.set({config})
