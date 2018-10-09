@@ -58,8 +58,8 @@ class Socket {
         client: data.client
       });
       notify.success({
-        title: `Total amount: ${data.total_credits}`,
-        text: `${formatSeconds(data.total_time, 'short')} added to voucher`
+        title: `${translator('toast.success.TOTAL_AMOUNT')}: ${data.total_credits}`,
+        text: `${formatSeconds(data.total_time, 'short')} ${translator('toast.success.ADDED_TO_VOUCHER')}`
       })
       try {
         Sounds.coinInserted.play();
@@ -91,8 +91,8 @@ class Socket {
 
     socket.on('remaining_time:updated', data => {
       notify.success({
-        title: 'Total amount: ' + data.total_credits,
-        text: 'Total time: ' + formatSeconds(data.total_time, 'short') + ' added'
+        title: `${translator('toast.success.TOTAL_AMOUNT')}: ${data.total_credits}`,
+        text: `${translator('toast.success.TOTAL_TIME')}: ${formatSeconds(data.total_time, 'short')} ${translator('toast.success.ADDED')}`
       });
       state.set({
         client: data.client,

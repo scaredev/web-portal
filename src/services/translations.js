@@ -56,7 +56,11 @@ const Translations = {
         TIME_PAUSED: 'Time paused',
         CONNECTED: 'Connected to internet',
         MACHINE_IS_UP: 'The wifi machine is up! Please reconnect to the wifi machine.',
-        VOUCHER_ACTIVATED: 'Voucher activated successfully.'
+        VOUCHER_ACTIVATED: 'Voucher activated successfully.',
+        TOTAL_TIME: 'Total time',
+        TOTAL_AMOUNT: 'Total amount',
+        ADDED_TO_VOUCHER: 'added to voucher',
+        ADDED: 'added'
       }
     }
   },
@@ -110,14 +114,18 @@ const Translations = {
         MACHINE_IS_OFFLINE: 'La máquina está fuera de línea',
         SOMETHING_WENT_WRONG: 'Algo salió mal.',
         SOMEONE_IS_PAYING: 'Alguien sigue pagando.',
-        DISCONNECTED: 'Desconectado a internet' 
+        DISCONNECTED: 'Desconectado a internet'
       },
       success: {
         SUCCESS: 'Éxito',
         TIME_PAUSED: 'Tiempo en pausa',
         CONNECTED: 'Conectado a internet',
         MACHINE_IS_UP: 'La máquina wifi está lista. por favor vuelva a conectar a la máquina wifi.',
-        VOUCHER_ACTIVATED: 'Voucher activado correctamente'
+        VOUCHER_ACTIVATED: 'Voucher activado correctamente',
+        TOTAL_TIME: 'Tiempo total',
+        TOTAL_AMOUNT: 'Cantidad Total',
+        ADDED_TO_VOUCHER: 'añadido al voucher',
+        ADDED: 'adicional'
       }
     }
   }

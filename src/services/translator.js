@@ -12,15 +12,16 @@ const translator = (text_id) => {
   if (!text_id) err = `${ERR}: "text" attribute is required.`;
   if (!lang || !result) err = text_id;
 
-  let txtArr = text_id.split('.');
-
   if (!err) {
+    let txtArr = text_id.split('.');
     for (let i=0; i < txtArr.length; i++) {
       let attr = txtArr[i];
-      if (result[attr])
+      if (typeof result == 'string')
+        break;
+      else if (result[attr])
         result = result[attr];
       else {
-        console.log(`Translation Error: No such attribute [${attr}] from ${text_id}" for the language ${lang}.`);
+        console.log(`Translation Error: No such attribute [${attr}] from "${text_id}" for the language ${lang}.`);
         err = text_id;
         break;
       }
