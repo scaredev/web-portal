@@ -13,7 +13,7 @@
 
     <div class="status-con">
       <h4>
-        Status:
+        <TranslationText text="status.STATUS"></TranslationText>:
         <strong>
           <StatusText client="{$client}" pause="{$allow_pause}"></StatusText>
         </strong>
@@ -23,7 +23,7 @@
     {#if $client.remaining_time > 0}
 
     <div class="remaining-time-con">
-      Remaining time:
+      <TranslationText text="REMAINING_TIME"></TranslationText>:
       <h3 class="remaining-time text-info">
         <FormatSeconds seconds="{$client.remaining_time}"></FormatSeconds>
       </h3>
@@ -35,7 +35,9 @@
       <ConnectOrPauseBtn></ConnectOrPauseBtn>
       <BuyVoucherButton show="{!$config.disable_buy_voucher}"></BuyVoucherButton>
       {#if $config.view_rates}
-      <button type="button" class="btn btn-info" on:click="viewRates()">View Rates</button>
+      <button type="button" class="btn btn-info" on:click="viewRates()">
+        <TranslationText text="buttons.VIEW_RATES"></TranslationText>
+      </button>
       {/if}
     </div>
 
@@ -60,6 +62,7 @@ import BuyVoucherButton from './buy-voucher-button/BuyVoucherButton.html';
 import StatusText from './status-text/StatusText.html';
 import RatesModal from './rates-modal/RatesModal.html';
 import Notifications from './notifications/Notifications.html';
+import TranslationText from './translation-text/TranslationText.html';
 import state from '../stores/state.store.js';
 import modalStore from './micromodal/store.js';
 
@@ -75,7 +78,8 @@ export default {
     Banner,
     IsOnline,
     MachineState,
-    Notifications
+    Notifications,
+    TranslationText
   },
   data() {
     return {

@@ -1,0 +1,43 @@
+{displayText}
+
+<script>
+import translations from '../../services/translations.js';
+import translator from '../../services/translator.js';
+import state from '../../stores/state.store.js';
+
+const ERR = `Translation Error`;
+
+export default {
+  store: () => state,
+  oncreate() {
+
+    this.translate();
+
+    const listener = this.store.on('state', ({ previous, current }) => {
+      if (previous.config.language == current.config.language) return;
+      this.translate();
+    });
+
+    this.on('destroy', () => {
+      listener.cancel();
+    });
+  },
+  onupdate() {
+    this.translate();
+  },
+  data() {
+    return {
+      text: null,
+      displayText: '',
+      translations
+    }
+  },
+  methods: {
+    translate() {
+      const data = this.get();
+      const txt = translator(data.text);
+      this.set({displayText: txt});
+    }
+  }
+}
+</script>

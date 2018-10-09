@@ -1,13 +1,15 @@
 <div class="pay-for-voucher-con text-center">
 
-  <h2 class="text-success">{$pageTitle}</h2>
+  <h2 class="text-success">
+    <TranslationText text="{$pageTitle}"></TranslationText>
+  </h2>
 
   <div class="insert-coin">
     <img src="{insertCoin}" style="width: 100%;" alt="">
   </div>
 
   <p>
-  Voucher Time:
+  <TranslationText text="VOUCHER_TIME"></TranslationText>:
   <span class="{$voucher.total_time > 0 ? 'text-success' : 'text-danger'}">
     <FormatSeconds seconds="{$voucher.total_time}"></FormatSeconds>
   </span>
@@ -28,17 +30,19 @@ import InserCoin from '../img/insert-coin.gif';
 import CounterTimer from './counter-timer/CounterTimer.html';
 import DonePayingOrCancelBtn from './done-paying-or-cancel-btn/DonePayingOrCancelBtn.html';
 import FormatSeconds from './format-seconds/FormatSeconds.html';
+import TranslationText from './translation-text/TranslationText.html';
 
 export default {
   store: () => state,
   components: {
     CounterTimer,
     DonePayingOrCancelBtn,
-    FormatSeconds
+    FormatSeconds,
+    TranslationText
   },
   oncreate() {
     state.set({
-      pageTitle: 'Pay For Voucher',
+      pageTitle: 'PAY_FOR_VOUCHER',
       voucher: {
         total_time: 0
       }

@@ -1,5 +1,6 @@
 import { Store } from 'svelte/store.js';
 import connectOrPauseBtnStore from '../components/connect-or-pause-btn/connect-or-pause-btn.store.js';
+import translator from '../services/translator.js';
 
 const store = new Store({
   pageTitle: '',
@@ -14,6 +15,11 @@ const store = new Store({
   wifiRestarting: false,
   voucherModalOpen: false
 });
+
+store.on('state', ({current}) => {
+  translator.setLanguage(current.config.language);
+  connectOrPauseBtnStore.update(current.config, current.client);
+})
 
 store.compute('page', [
   'config',
@@ -33,23 +39,22 @@ store.compute('machineState', [
   'socketDisconnected',
   'serverRebooting',
   'serverShutdown',
-  'wifiRestarting'
-], (socketDisconnected, serverRebooting, serverShutdown, wifiRestarting) => {
+  'wifiRestarting',
+  'config'
+], (socketDisconnected, serverRebooting, serverShutdown, wifiRestarting, config) => {
+
   if (socketDisconnected && !(serverRebooting || serverShutdown || wifiRestarting))
-    return 'Unable to synchronize connection status.';
+    return translator('machine_state.UNABLE_TO_SYNCHRONIZE');
   else if (serverRebooting)
-    return 'The machine is rebooting.';
+    return translator('machine_state.REBOOTING');
   else if (serverShutdown)
-    return 'The machine is shutting down';
+    return translator('machine_state.SHUTTING_DOWN');
   else if (wifiRestarting)
-    return 'The WiFi is restarting';
+    return translator('machine_state.WIFI_RESTARTING');
   else
     return null;
+
 });
 
-store.on('state', ({current}) => {
-  connectOrPauseBtnStore.update(current.config, current.client);
-})
-
-
 export default store;
+

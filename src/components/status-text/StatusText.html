@@ -1,9 +1,13 @@
 <span class="status-text {klass}">
-  {text}
+  <TranslationText text="{text}"></TranslationText>
 </span>
 
 <script>
+  import TranslationText from '../translation-text/TranslationText.html';
   export default {
+    components: {
+      TranslationText
+    },
     data() {
       return {
         client: {},
@@ -15,10 +19,10 @@
         return client.remaining_time > 0
           ? (client.status == 'disconnected'
             ? (pause
-              ? 'Paused'
-              : 'Pls. Reconnect')
-            : 'Connected')
-          : 'Disconnected';
+              ? 'status.PAUSED'
+              : 'status.RECONNECT')
+            : 'status.CONNECTED')
+          : 'status.DISCONNECTED';
       },
       klass: ({client}) => {
         return client.remaining_time > 0? (client.status == 'disconnected'? 'text-warning' : 'text-success') : 'text-danger';

@@ -1,20 +1,26 @@
 <form class="voucher-form" name="voucherForm">
   <div class="form-group">
-    <label>Do you have a voucher?</label>
-    <input type="text" autocomplete="off" placeholder="Type your voucher code here..." bind:value=code name="code" class="form-control" required>
+    <label>
+      <TranslationText text="DO_YOU_HAVE_A_VOUCHER"></TranslationText> 
+    </label>
+    <input type="text" autocomplete="off" placeholder="Voucher Code" bind:value=code name="code" class="form-control" required>
   </div>
   <Ladda disabled="{!code}" ladda="{submitting}" class="btn {getClass(code)}" on:click="submit(event, code)" spinnercolor="#fff">
-  Use Voucher
+  <TranslationText text="buttons.USE_VOUCHER"></TranslationText>
   </Ladda>
 </form>
 
 <script>
 
 import Ladda from 'svelte-ladda';
+import TranslationText from '../translation-text/TranslationText.html';
 import ClientHttp from '../../services/client.http.js';
 
 export default {
-  components: {Ladda},
+  components: {
+    Ladda,
+    TranslationText
+  },
   data() {
     return {
       submitting: false,

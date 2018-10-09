@@ -6,15 +6,19 @@
     </div>
   </div>
   <div class="text-left ellipsis">
-    Waiting for payment({$client.counter_timer}s)
+    <TranslationText text="WAITING_FOR_PAYMENT"></TranslationText>({$client.counter_timer}s)
   </div>
 </div>
 
 <script>
 
+import TranslationText from '../translation-text/TranslationText.html';
 import state from '../../stores/state.store.js';
 
 export default {
+  components: {
+    TranslationText
+  },
   store: () => state,
   helpers: {
     valuePercent (config, client) {
