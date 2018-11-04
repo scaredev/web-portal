@@ -66,7 +66,8 @@ class ClientHttp {
         });
         state.set({client: res.data});
         return res;
-      });
+      })
+      .catch(catchHttpError);
   }
 
   static activateVoucher(code) {
