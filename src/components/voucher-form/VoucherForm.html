@@ -3,7 +3,7 @@
     <label>
       <TranslationText text="DO_YOU_HAVE_A_VOUCHER"></TranslationText> 
     </label>
-    <input type="text" autocomplete="off" placeholder="Voucher Code" bind:value=code name="code" class="form-control" required>
+    <input type="text" autocomplete="off" placeholder="Voucher Code or Token" bind:value=code name="code" class="form-control" required>
   </div>
   <Ladda disabled="{!code}" ladda="{submitting}" class="btn {getClass(code)}" on:click="submit(event, code)" spinnercolor="#fff">
   <TranslationText text="buttons.USE_VOUCHER"></TranslationText>
