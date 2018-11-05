@@ -53,7 +53,8 @@ const Translations = {
         SOMEONE_IS_PAYING: 'Somebody is still paying.',
         DISCONNECTED: 'Disconnected from internet',
         INVALID_COOKIE: 'Invalid session. Please ask the owner of wifi vending machine for your Token.',
-        INVALID_VOUCHER_TOKEN: "Invalid voucher code or token"
+        INVALID_VOUCHER_TOKEN: "Invalid voucher code or token",
+        TOKEN_NOT_SHARABLE: "Token is not sharable"
       },
       success: {
         SUCCESS: 'Success',
@@ -123,7 +124,8 @@ const Translations = {
         SOMEONE_IS_PAYING: 'Alguien sigue pagando.',
         DISCONNECTED: 'Desconectado a internet',
         INVALID_COOKIE: 'Sesión inválida. Por favor, pregunte al propietario de la máquina wifi para su token.',
-        INVALID_VOUCHER_TOKEN: "Voucher code o token inválida"
+        INVALID_VOUCHER_TOKEN: "Voucher code o token inválida",
+        TOKEN_NOT_SHARABLE: "El token no es compartible"
       },
       success: {
         SUCCESS: 'Éxito',
