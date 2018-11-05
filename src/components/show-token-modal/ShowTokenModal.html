@@ -21,15 +21,17 @@
 </div>
 
 <script>
-  import FormatSeconds from '../format-seconds/FormatSeconds.html';
+import FormatSeconds from '../format-seconds/FormatSeconds.html';
 import Clipboard from 'clipboard';
 import TranslationText from '../translation-text/TranslationText.html';
+import Notify from '../../services/notify.js';
 
 export default {
   components: {TranslationText},
   methods: {
     close() {
       this.fire('close');
+      Notify.info('Token has been copied to clipboard. You can paste it now somewhere.')
     },
     data() {
       return {}
