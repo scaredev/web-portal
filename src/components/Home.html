@@ -39,6 +39,7 @@
         <TranslationText text="buttons.VIEW_RATES"></TranslationText>
       </button>
       {/if}
+      <ViewTokenBtn></ViewTokenBtn>
     </div>
 
     <hr>
@@ -53,6 +54,7 @@
 import FormatSeconds from './format-seconds/FormatSeconds.html';
 import InserCoinBtn from './insert-coin-btn/InsertCoinBtn.html';
 import ConnectOrPauseBtn from './connect-or-pause-btn/ConnectOrPauseBtn.html';
+import ViewTokenBtn from './view-token-btn/ViewTokenBtn.html';
 import IsOnline from './is-online/IsOnline.html';
 import Banner from './banner/Banner.html';
 import VoucherForm from './voucher-form/VoucherForm.html';
@@ -79,7 +81,8 @@ export default {
     IsOnline,
     MachineState,
     Notifications,
-    TranslationText
+    TranslationText,
+    ViewTokenBtn
   },
   data() {
     return {

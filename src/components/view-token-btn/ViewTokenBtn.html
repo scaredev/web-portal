@@ -1,0 +1,42 @@
+<Ladda ladda="{queing}" class="view-token-btn btn btn-info" on:click="que()">
+<TranslationText text="{queing? 'PLEASE_WAIT' : 'buttons.VIEW_TOKEN'}"></TranslationText>
+</Ladda>
+
+<script>
+
+import modalStore from '../micromodal/store.js';
+import ClientHttp from '../../services/client.http.js';
+import Ladda from 'svelte-ladda';
+import TranslationText from '../translation-text/TranslationText.html';
+import ShowTokenModal from '../show-token-modal/ShowTokenModal.html';
+
+export default {
+  components: {
+    Ladda,
+    TranslationText
+  },
+  data() {
+    return {
+      queing: false
+    }
+  },
+  methods: {
+    que() {
+      this.fire('click')
+      this.set({queing: true})
+      ClientHttp.viewToken()
+        .then(res => {
+          modalStore.set({
+            show: true,
+            component: ShowTokenModal,
+            data: res.data
+          })
+        })
+        .finally(() => {
+          this.set({queing: false})
+        })
+    }
+  }
+}
+
+</script>

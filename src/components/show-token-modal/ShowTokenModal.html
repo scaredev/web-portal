@@ -1,0 +1,58 @@
+<div class="token-modal modal__overlay" tabindex="-1">
+  <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+    <header class="modal__header">
+      <h2 class="">
+        <!--Here's Your Voucher-->
+        <TranslationText text="HERES_YOUR_TOKEN"></TranslationText>
+      </h2>
+    </header>
+    <main class="modal__content" id="modal-1-content">
+      <div style="padding: 5px; border: 1px solid green;">
+        <h1 class="text-success">{data.token}</h1>
+      </div>
+    </main>
+    <footer class="modal__footer text-center">
+      <button ref:closebtn class="btn btn-warning" on:click="close()">
+        <i class="glyphicon glyphicon-check"></i>
+        <TranslationText text="buttons.COPY_TO_CLIPBOARD"></TranslationText>
+      </button>
+    </footer>
+  </div>
+</div>
+
+<script>
+  import FormatSeconds from '../format-seconds/FormatSeconds.html';
+import Clipboard from 'clipboard';
+import TranslationText from '../translation-text/TranslationText.html';
+
+export default {
+  components: {TranslationText},
+  methods: {
+    close() {
+      this.fire('close');
+    },
+    data() {
+      return {}
+    }
+  },
+  oncreate() {
+    window.onbeforeunload = function() {
+      return "Are you sure you want to leave?";
+    }
+
+    const token = this.get().data.token;
+
+    this.clipboard = new Clipboard(this.refs.closebtn, {
+      text: () => token
+    });
+
+  },
+  ondestroy() {
+    window.onbeforeunload = function() {};
+    setTimeout(() => {
+      this.clipboard.destroy();
+    }, 500)
+  }
+}
+</script>
+

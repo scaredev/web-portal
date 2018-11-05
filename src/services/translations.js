@@ -14,6 +14,7 @@ const Translations = {
       DONE_PAYING_FOR_VOUCHER: 'Done paying for voucher',
       PAUSE_TIME: 'Pause Time',
       START_INTERNET: 'Start Internet',
+      VIEW_TOKEN: 'Your Token',
       COPY_TO_CLIPBOARD: 'Copy To Clipboard'
     },
     CODE: 'Code',
@@ -30,6 +31,7 @@ const Translations = {
     WAITING_FOR_PAYMENT: 'Waiting for payment',
     YOUR_TIME: 'Your Time',
     HERES_YOUR_VOUCHER: "Here's Your Voucher",
+    HERES_YOUR_TOKEN: "Here's Your Token",
     PRINT_SCREEN: 'Please print screen this page for backup.',
     status: {
       STATUS: 'Status',
@@ -81,6 +83,7 @@ const Translations = {
       DONE_PAYING_FOR_VOUCHER: 'Hecho pagar por el voucher',
       PAUSE_TIME: 'Tiempo de pausa',
       START_INTERNET: 'Iniciar Internet',
+      VIEW_TOKEN: 'Tu token',
       COPY_TO_CLIPBOARD: 'Copiar al Portapapeles'
     },
     CODE: 'Codigo',
@@ -97,6 +100,7 @@ const Translations = {
     WAITING_FOR_PAYMENT: 'A la espera del pago',
     YOUR_TIME: 'Su Tiempo',
     HERES_YOUR_VOUCHER: "Aquí Está Tu Voucher",
+    HERES_YOUR_TOKEN: "Aquí Está Tu Token",
     PRINT_SCREEN: 'Por favor imprima la pantalla de esta página para copia de seguridad.',
     status: {
       STATUS: 'Estado',

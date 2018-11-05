@@ -86,6 +86,10 @@ class ClientHttp {
       .catch(catchHttpError);
   }
 
+  static viewToken() {
+    return Http.get('/token').catch(catchHttpError)
+  }
+
 }
 
 export default ClientHttp
