@@ -1,4 +1,5 @@
 import io from "socket.io-client";
+import Http from '../services/http.js';
 import ClientHttp from './client.http.js';
 import Sounds from '../services/sounds.js';
 import state from '../stores/state.store.js';
@@ -36,6 +37,9 @@ class Socket {
       } else {
         socket.emit('register', state.get().client.ip_address);
       }
+
+      Http.setSocketID(socket.id)
+
     });
 
     socket.on('disconnect', () => {
@@ -163,6 +167,12 @@ class Socket {
       let config = state.get().config;
       config.notifications.push(data);
       state.set({config})
+    })
+
+    socket.on('remove:cookie', () => {
+      console.log('shoould delete cookie')
+      const customer_token = 'customer_token';
+      document.cookie = customer_token + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT; Path=/;'; 
     })
 
     this.socket = socket;

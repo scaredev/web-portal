@@ -1,6 +1,12 @@
 // supports only GET and POST methods
 
+let socket_id;
+
 class Http {
+
+  static setSocketID(id) {
+    socket_id = id
+  }
 
   // https://stackoverflow.com/questions/6566456/how-to-serialize-an-object-into-a-list-of-parameters
   static toParams(obj) {
@@ -50,6 +56,10 @@ class Http {
       };
 
       http.open(method, url, true);
+
+      if (socket_id) {
+        http.setRequestHeader('socket_id', socket_id)
+      }
 
       if (method == "POST") {
         //Send the proper header information along with the request

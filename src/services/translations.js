@@ -52,7 +52,7 @@ const Translations = {
         SOMETHING_WENT_WRONG: 'Something went wrong.',
         SOMEONE_IS_PAYING: 'Somebody is still paying.',
         DISCONNECTED: 'Disconnected from internet',
-        INVALID_COOKIE: 'Invalid session. Please ask the owner of wifi vending machine for your Token.',
+        INVALID_COOKIE: 'Invalid session. Open the last browser you used to access this portal. Or ask the owner of wifi vending machine for your Token.',
         INVALID_VOUCHER_TOKEN: "Invalid voucher code or token",
         TOKEN_NOT_SHARABLE: "Token is not sharable"
       },
@@ -123,7 +123,7 @@ const Translations = {
         SOMETHING_WENT_WRONG: 'Algo salió mal.',
         SOMEONE_IS_PAYING: 'Alguien sigue pagando.',
         DISCONNECTED: 'Desconectado a internet',
-        INVALID_COOKIE: 'Sesión inválida. Por favor, pregunte al propietario de la máquina wifi para su token.',
+        INVALID_COOKIE: 'Sesión inválida Abra el último navegador que utilizó para acceder a esta página. O pregunte al propietario de la máquina expendedora de wifi para su Token.',
         INVALID_VOUCHER_TOKEN: "Voucher code o token inválida",
         TOKEN_NOT_SHARABLE: "El token no es compartible"
       },
