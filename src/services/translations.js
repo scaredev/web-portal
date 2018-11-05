@@ -14,7 +14,7 @@ const Translations = {
       DONE_PAYING_FOR_VOUCHER: 'Done paying for voucher',
       PAUSE_TIME: 'Pause Time',
       START_INTERNET: 'Start Internet',
-      VIEW_TOKEN: 'Your Token',
+      VIEW_TOKEN: 'Share Token',
       COPY_TO_CLIPBOARD: 'Copy To Clipboard'
     },
     CODE: 'Code',
@@ -85,7 +85,7 @@ const Translations = {
       DONE_PAYING_FOR_VOUCHER: 'Hecho pagar por el voucher',
       PAUSE_TIME: 'Tiempo de pausa',
       START_INTERNET: 'Iniciar Internet',
-      VIEW_TOKEN: 'Tu token',
+      VIEW_TOKEN: 'Ver token',
       COPY_TO_CLIPBOARD: 'Copiar al Portapapeles'
     },
     CODE: 'Codigo',
