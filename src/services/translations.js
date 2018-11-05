@@ -21,7 +21,7 @@ const Translations = {
     VOUCHER_TIME: 'Voucher Time',
     PLEASE_WAIT: 'Please wait',
     PACKAGE_RATES: 'Package Rates',
-    DO_YOU_HAVE_A_VOUCHER: 'Do you have a voucher?',
+    DO_YOU_HAVE_A_VOUCHER: 'Do you have a voucher or token?',
     REMAINING_TIME: 'Remaining Time',
     AMOUNT: 'Amount',
     TIME: 'Time',
@@ -49,7 +49,9 @@ const Translations = {
         MACHINE_IS_OFFLINE: 'Machine is OFFLINE',
         SOMETHING_WENT_WRONG: 'Something went wrong.',
         SOMEONE_IS_PAYING: 'Somebody is still paying.',
-        DISCONNECTED: 'Disconnected from internet'
+        DISCONNECTED: 'Disconnected from internet',
+        INVALID_COOKIE: 'Invalid session. Please ask the owner of wifi vending machine for your Token.',
+        INVALID_VOUCHER_TOKEN: "Invalid voucher code or token"
       },
       success: {
         SUCCESS: 'Success',
@@ -86,7 +88,7 @@ const Translations = {
     VOUCHER_TIME: 'Tiempo de voucher',
     PLEASE_WAIT: 'Por favor espera',
     PACKAGE_RATES: 'Tarifas de Paquete',
-    DO_YOU_HAVE_A_VOUCHER: 'Tienes un voucher?',
+    DO_YOU_HAVE_A_VOUCHER: 'Tienes un voucher o token?',
     REMAINING_TIME: 'Tiempo Restante',
     AMOUNT: 'Cantidad',
     TIME: 'Hora',
@@ -114,7 +116,9 @@ const Translations = {
         MACHINE_IS_OFFLINE: 'La máquina está fuera de línea',
         SOMETHING_WENT_WRONG: 'Algo salió mal.',
         SOMEONE_IS_PAYING: 'Alguien sigue pagando.',
-        DISCONNECTED: 'Desconectado a internet'
+        DISCONNECTED: 'Desconectado a internet',
+        INVALID_COOKIE: 'Sesión inválida. Por favor, pregunte al propietario de la máquina wifi para su token.',
+        INVALID_VOUCHER_TOKEN: "Voucher code o token inválida"
       },
       success: {
         SUCCESS: 'Éxito',
