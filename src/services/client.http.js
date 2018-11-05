@@ -74,10 +74,10 @@ class ClientHttp {
     return Http.post('/vouchers/activate', {code})
       .then(res => {
         state.set({
-          client: res.data
+          client: res.data.client
         });
         notify.success({
-          text: translator('toast.success.VOUCHER_ACTIVATED') 
+          text: translator('toast.success.' + res.data.type + '_ACTIVATED') 
         });
 
         if (state.get().client.status == 'disconnected')
