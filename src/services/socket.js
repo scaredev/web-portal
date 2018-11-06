@@ -28,6 +28,7 @@ class Socket {
           title: 'Yehey!',
           text: translator('toast.success.MACHINE_IS_UP')
         });
+        setTimeout(window.location.reload, 1500)
       }
       if (prev.socketDisconnected) {
         ClientHttp.syncClient()
