@@ -10,7 +10,7 @@ class InternalTimer {
   static start() {
     intv = setInterval(() => {
       let config = state.get().config;
-      let allow_pause = state.get().allow_pause;
+      let allow_pause = state.get().client.allow_pause;
       let socketDisconnected = state.get().socketDisconnected;
       if (!socketDisconnected) {
         let data = state.get().client;
