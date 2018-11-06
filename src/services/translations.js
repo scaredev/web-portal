@@ -48,6 +48,7 @@ const Translations = {
     },
     toast: {
       error: {
+        ACTION_NOT_ALLOWED: 'Action is not allowed.',
         MACHINE_IS_OFFLINE: 'Machine is OFFLINE',
         SOMETHING_WENT_WRONG: 'Something went wrong.',
         SOMEONE_IS_PAYING: 'Somebody is still paying.',
@@ -119,6 +120,7 @@ const Translations = {
     },
     toast: {
       error: {
+        ACTION_NOT_ALLOWED: 'La acción está prohibida',
         MACHINE_IS_OFFLINE: 'La máquina está fuera de línea',
         SOMETHING_WENT_WRONG: 'Algo salió mal.',
         SOMEONE_IS_PAYING: 'Alguien sigue pagando.',
