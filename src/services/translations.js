@@ -14,7 +14,7 @@ const Translations = {
       DONE_PAYING_FOR_VOUCHER: 'Done paying for voucher',
       PAUSE_TIME: 'Pause Time',
       START_INTERNET: 'Start Internet',
-      VIEW_TOKEN: 'Share Token',
+      VIEW_TOKEN: 'View Token',
       COPY_TO_CLIPBOARD: 'Copy To Clipboard'
     },
     CODE: 'Code',
