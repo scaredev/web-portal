@@ -55,7 +55,7 @@ const Translations = {
         DISCONNECTED: 'Disconnected from internet',
         INVALID_COOKIE: 'Invalid session. Open the last browser you used to access this portal. Or ask the owner of wifi vending machine for your Token.',
         INVALID_VOUCHER_TOKEN: "Invalid voucher code or token",
-        TOKEN_NOT_SHARABLE: "Token is not allowed to be shared."
+        TOKEN_NOT_SHARABLE: "Token is not allowed to be transferred."
       },
       success: {
         SUCCESS: 'Success',
@@ -127,7 +127,7 @@ const Translations = {
         DISCONNECTED: 'Desconectado a internet',
         INVALID_COOKIE: 'Sesión inválida Abra el último navegador que utilizó para acceder a esta página. O pregunte al propietario de la máquina expendedora de wifi para su Token.',
         INVALID_VOUCHER_TOKEN: "Voucher code o token inválida",
-        TOKEN_NOT_SHARABLE: "Token no está permitido ser compartido"
+        TOKEN_NOT_SHARABLE: "El token no está permitido ser transferido"
       },
       success: {
         SUCCESS: 'Éxito',
