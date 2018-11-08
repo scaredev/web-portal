@@ -1,11 +1,13 @@
 import translations from './translations.js';
+import cookie from './cookie.js';
 
+const lang_field = 'ado_lang'
 const ERR = 'Translation Error';
-let language = 'en'
+let language = cookie.getCookie('ado_lang') || 'en'
 
 const translator = (text_id) => {
 
-  let lang = language;
+  let lang = language || cookie.getCookie(lang_field) || 'en';
   let result = translations[lang];
   let err;
 
@@ -33,7 +35,9 @@ const translator = (text_id) => {
 }
 
 translator.setLanguage = (lang) => {
+  if (!lang) return;
   language = lang
+  cookie.setCookie(lang_field, lang, 365)
 }
 
 export default translator;
