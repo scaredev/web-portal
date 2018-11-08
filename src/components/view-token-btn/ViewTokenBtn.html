@@ -32,7 +32,10 @@ export default {
             data: res.data
           })
         })
-        .finally(() => {
+        .then(() => {
+          this.set({queing: false})
+        })
+        .catch(() => {
           this.set({queing: false})
         })
     }

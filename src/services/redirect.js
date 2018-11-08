@@ -5,7 +5,7 @@ let redirectTimeout;
 class Redirect {
 
   static redirect() {
-    if (window.location.hostname == 'localhost') return;
+    if (window.location.hostname == 'localhost') return console.log("Redicting...");
     if (state.get().voucherModalOpen) return;
     const c = state.get().config;
     const hostname = c.domain.subdomain + '.' + c.domain.domain + '.' + c.domain.authority;
