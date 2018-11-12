@@ -1,4 +1,4 @@
-<Ladda ladda="{queing}" class="view-token-btn btn btn-danger" on:click="que()">
+<Ladda ladda="{queing}" class="view-token-btn btn btn-danger {!show? 'hidden': ''}" on:click="que()">
 <TranslationText text="{queing? 'PLEASE_WAIT' : 'buttons.VIEW_TOKEN'}"></TranslationText>
 </Ladda>
 
@@ -17,7 +17,8 @@ export default {
   },
   data() {
     return {
-      queing: false
+      queing: false,
+      show: true
     }
   },
   methods: {
