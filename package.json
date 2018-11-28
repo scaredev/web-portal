@@ -49,6 +49,7 @@
     "image-preloader": "^1.1.1",
     "micromodal": "^0.3.2",
     "native-promise-only": "^0.8.1",
+    "natives": "^1.1.6",
     "socket.io-client": "^2.1.1",
     "svelte": "^2.6.0",
     "svelte-ladda": "^1.0.5",
